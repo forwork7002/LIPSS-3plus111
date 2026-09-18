@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LIPSS lab-blesk — 13 ta rang va hid, 4–6 soat chidamlilik. 145 000 so'm, 3 ta olsangiz 1 tasi tekin. Operator 15 daqiqada bog'lanadi, to'lov qabul qilganda.">
+<meta name="theme-color" content="#FBF6EF">
+<meta property="og:title" content="LIPSS — sizning yangi shirin desertingiz">
+<meta property="og:description" content="3 ta blesk oling, 4-chisi sovg'a. 13 ta rang. Toshkentga 1 kun, viloyatlarga 2–4 kun.">
+<meta property="og:type" content="website">
+<!-- Havolani ulashganda rasm chiqishi uchun: <meta property="og:image" content="https://SIZNING-SAYT/img/01.webp"> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2730%27 fill=%27%23B8243A%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-size=%2730%27 text-anchor=%27middle%27 fill=%27%23fff%27 font-family=%27Arial%27 font-weight=%27700%27%3EL%3C/text%3E%3C/svg%3E">
+<title data-i18n="meta">LIPSS — sizning yangi shirin desertingiz</title>
+<link rel="preload" as="image" href="img/01.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FBF6EF; --cream:#F4EAE0; --cream2:#EADBCB;
+  --cocoa:#2E1712; --cocoa2:#4B2A1E; --soft:#7B5C4E;
+  --cherry:#B8243A; --cherry2:#E0405A; --cherry3:#8E1729;
+  --rose:#F3C7C0; --gold:#D9B77C; --coconut:#FFFDFA;
+  --line:rgba(46,23,18,.10); --line2:rgba(46,23,18,.18);
+  --wrap:1180px;
+  --r-xl:32px; --r-lg:22px; --r-md:14px; --r-sm:10px;
+  --shadow-lift:0 30px 60px -30px rgba(46,23,18,.45), 0 2px 0 rgba(255,255,255,.6) inset;
+  --gloss:linear-gradient(180deg,#E0405A 0%,#C22C43 48%,#A81D33 100%);
+  --coconut-rgb:255,253,250;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--ivory);color:var(--cocoa);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
+h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.06;text-wrap:balance}
+p{text-wrap:pretty}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:3px;border-radius:6px}
+::selection{background:var(--rose);color:var(--cocoa)}
+
+/* ===== Buttons: glossy like a lip gloss ===== */
+.btn{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:.005em;background:var(--cocoa);color:var(--coconut);transition:transform .18s ease,box-shadow .18s ease,background .18s ease;overflow:hidden;white-space:nowrap}
+.btn::before{content:"";position:absolute;left:12%;right:12%;top:3px;height:42%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0));pointer-events:none;z-index:1}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn.cherry{background:var(--gloss);box-shadow:0 14px 28px -14px rgba(184,36,58,.65),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn.cherry:hover{box-shadow:0 18px 34px -14px rgba(184,36,58,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn.ghost{background:transparent;color:var(--cocoa);box-shadow:inset 0 0 0 1.5px var(--cocoa)}
+.btn.ghost::before{display:none}
+.btn.ghost:hover{background:var(--cocoa);color:var(--coconut)}
+.btn.light{background:var(--coconut);color:var(--cocoa);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn.light:hover{background:var(--cherry);color:#fff}
+
+/* ===== Nav ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,246,239,.82);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(46,23,18,.35)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font-family:'Unbounded';font-weight:800;font-size:23px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
+.logo::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--gloss);box-shadow:inset 0 1px 1px rgba(255,255,255,.6)}
+.nav-links{display:flex;gap:30px;font-weight:600;font-size:14.5px}
+.nav-links a{position:relative;color:var(--cocoa2);padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--cherry);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav-links a:hover{color:var(--cocoa)}.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav .btn{padding:11px 20px;font-size:14px}
+@media(max-width:980px){.nav-links{display:none}}
+@media(max-width:520px){.nav .btn{display:none}.nav .wrap{height:62px}}
+
+/* ===== Hero ===== */
+.hero{position:relative;display:grid;grid-template-columns:1.05fr 1fr;min-height:min(88vh,860px);background:var(--ivory);padding:0;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-10%;top:-30%;width:60%;height:120%;background:radial-gradient(closest-side,rgba(243,199,192,.55),rgba(243,199,192,0));pointer-events:none}
+.hero .txt{position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:72px 56px 72px max(24px,calc((100vw - var(--wrap))/2 + 24px));animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .pic{position:relative;overflow:hidden;background:#2a1712;min-height:560px}
+.hero .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.03);animation:settle 1.4s cubic-bezier(.2,.7,.2,1) both}
+.hero .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,246,239,.55),rgba(251,246,239,0) 22%),linear-gradient(0deg,rgba(46,23,18,.25),rgba(46,23,18,0) 40%);pointer-events:none}
+.hero .kick{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--cocoa2);background:var(--coconut);border:1px solid var(--line);padding:8px 14px 8px 10px;border-radius:999px;margin-bottom:26px;align-self:flex-start;max-width:100%}
+.hero .kick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cherry);box-shadow:0 0 0 3px rgba(184,36,58,.15)}
+.hero h1{font-size:clamp(42px,5.6vw,84px);font-weight:800;line-height:.96;letter-spacing:-.03em}
+.hero p{font-size:clamp(16px,1.35vw,19px);max-width:520px;margin:26px 0 34px;color:var(--soft)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta .btn{padding:17px 30px;font-size:16px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;margin-top:48px;border-top:1px solid var(--line2)}
+.hero-stats div{padding:22px 24px 0 0;margin-right:24px;border-right:1px solid var(--line)}
+.hero-stats div:last-child{border-right:0;margin-right:0;padding-right:0}
+.hero-stats b{display:block;font-family:'Unbounded';font-size:26px;letter-spacing:-.02em;line-height:1}
+.hero-stats span{display:block;font-size:13px;color:var(--soft);margin-top:6px;max-width:150px;line-height:1.35}
+
+/* Promo sticker — the one bold element */
+.sticker{position:absolute;z-index:3;left:calc(50% - 88px);bottom:9%;width:176px;height:176px;border-radius:50%;background:var(--gloss);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);box-shadow:0 30px 50px -22px rgba(184,36,58,.75),inset 0 2px 0 rgba(255,255,255,.35),inset 0 -6px 12px rgba(0,0,0,.14);animation:pop .9s .35s cubic-bezier(.2,1.4,.3,1) both}
+.sticker::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.55)}
+.sticker::after{content:"";position:absolute;left:22%;top:12%;width:40%;height:22%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0));filter:blur(1px)}
+.sticker b{font-family:'Unbounded';font-weight:900;font-size:54px;line-height:.9;letter-spacing:-.04em;text-shadow:0 2px 0 rgba(0,0,0,.12)}
+.sticker small{font-family:'Unbounded';font-size:11px;font-weight:700;letter-spacing:.02em;margin-top:8px;padding:0 20px;line-height:1.25}
+.sticker i{font-style:normal;font-size:10px;font-weight:700;opacity:.85;margin-top:5px;letter-spacing:.06em}
+@keyframes pop{from{transform:rotate(-20deg) scale(.4);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+@keyframes rise{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+@keyframes settle{from{transform:scale(1.08)}to{transform:scale(1.03)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .pic{order:-1;aspect-ratio:4/5;min-height:0}
+  .hero .pic::after{background:linear-gradient(0deg,rgba(251,246,239,1),rgba(251,246,239,0) 30%)}
+  .hero .txt{padding:8px 24px 48px}
+  .sticker{left:auto;right:16px;top:auto;bottom:18px;width:136px;height:136px}
+  .sticker b{font-size:40px}.sticker small{font-size:9px;padding:0 14px}.sticker i{font-size:8px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-stats div{padding:16px 16px 0 0;margin-right:16px}
+  .hero-stats div:nth-child(2){border-right:0}
+}
+
+/* ===== Trust strip ===== */
+.trust{background:var(--coconut);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-top:0;padding-bottom:0}
+.trust div{display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:600;color:var(--cocoa2);padding:18px 20px;border-right:1px solid var(--line)}
+.trust div:first-child{padding-left:0}
+.trust div:last-child{border-right:0}
+.trust i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-style:normal;font-size:15px}
+@media(max-width:800px){.trust .wrap{grid-template-columns:1fr 1fr}.trust div{font-size:12.5px;padding:12px 14px 12px 0;border-right:0;border-bottom:1px solid var(--line)}.trust div:nth-last-child(-n+2){border-bottom:0}}
+
+/* ===== Marquee ===== */
+.marquee{padding:15px 0;overflow:hidden;background:var(--cocoa);color:var(--rose);border-top:1px solid rgba(255,255,255,.06)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;font-family:'Unbounded';font-weight:500;font-size:14px;letter-spacing:.04em;animation:slide 46s linear infinite;width:max-content}
+.marquee-track span{padding:0 28px;display:inline-flex;align-items:center;gap:28px}
+.marquee-track span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:104px 0}
+.head{max-width:760px;margin-bottom:56px}
+.head h2{font-size:clamp(30px,4.2vw,56px)}
+.head p{margin-top:18px;font-size:18px;color:var(--soft);max-width:620px}
+.head.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* ===== Why (editorial list) ===== */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.why-img{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 70px -40px rgba(46,23,18,.5)}
+.why-img img{width:100%;height:100%;object-fit:cover}
+.why-img::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);border-radius:inherit;pointer-events:none}
+.why-list{display:grid}
+.w{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:24px 0;border-top:1px solid var(--line)}
+.w:last-child{border-bottom:1px solid var(--line)}
+.w .ic{width:56px;height:56px;border-radius:50%;background:var(--rose)!important;display:grid;place-items:center;font-size:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.w h3{font-size:18px;margin-bottom:6px;letter-spacing:-.01em}
+.w p{font-size:15px;color:var(--soft)}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr;gap:36px}.why-img{aspect-ratio:4/3}}
+
+/* ===== Shades ===== */
+.shades{background:var(--coconut);border-top:1px solid var(--line)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filters button{padding:10px 18px;border-radius:999px;background:var(--cream);font-weight:700;font-size:13px;color:var(--cocoa2);transition:background .15s,color .15s}
+.filters button:hover{background:var(--cream2)}
+.filters button.on{background:var(--cocoa);color:var(--coconut)}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.s{background:var(--ivory);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);position:relative;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.s:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(46,23,18,.45);border-color:transparent}
+.s .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cream)}
+.s .ph img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .4s ease,transform .6s ease}
+.s:hover .ph img{transform:scale(1.04)}
+.s .ph img.lips{opacity:0}
+.s:hover .ph img.lips,.s.flip .ph img.lips{opacity:1}
+.s .ph .hint{position:absolute;left:12px;bottom:12px;background:rgba(46,23,18,.72);color:#fff;font-size:11px;font-weight:700;padding:7px 11px;border-radius:999px;backdrop-filter:blur(6px)}
+.s .new{position:absolute;top:12px;left:12px;z-index:2;background:var(--gloss);color:#fff;font-size:11px;font-weight:800;padding:6px 11px;border-radius:999px;letter-spacing:.04em;box-shadow:0 6px 14px -6px rgba(184,36,58,.6)}
+.s .info{padding:18px 18px 18px}
+.s h3{font-size:15.5px;letter-spacing:0}
+.s .meta{display:flex;flex-direction:column;gap:3px;margin:8px 0 16px;font-size:13px;color:var(--soft)}
+.s .meta b{color:var(--cocoa);font-weight:700;margin-right:4px}
+.s .dot,.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle;box-shadow:inset 0 0 0 1px rgba(46,23,18,.18),inset 0 1px 1px rgba(255,255,255,.5)}
+.s .btn{width:100%;padding:12px;font-size:13.5px}
+@media(max-width:1000px){.sgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.sgrid{grid-template-columns:repeat(2,1fr);gap:12px}.s .info{padding:12px}.s .btn{padding:10px}}
+
+/* ===== Lips strip ===== */
+.lips-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 24px 14px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.lips-strip::-webkit-scrollbar{display:none}
+.lips-strip figure{flex:0 0 68%;max-width:300px;scroll-snap-align:start;border-radius:var(--r-lg);overflow:hidden;position:relative;aspect-ratio:4/5;background:var(--cream)}
+.lips-strip img{width:100%;height:100%;object-fit:cover}
+.lips-strip figcaption{position:absolute;left:12px;bottom:12px;background:rgba(var(--coconut-rgb),.92);padding:8px 13px;border-radius:999px;font-size:12px;font-weight:700;font-family:'Unbounded';backdrop-filter:blur(6px)}
+@media(min-width:900px){.lips-strip figure{flex:0 0 calc(16.66% - 12px)}}
+
+/* ===== Formula ===== */
+.formula{background:var(--cream)}
+.formula .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.formula .img{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:1;box-shadow:0 40px 70px -40px rgba(46,23,18,.5)}
+.formula .img img{width:100%;height:100%;object-fit:cover}
+.feel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0}
+.feel div{padding:18px 20px;border-radius:var(--r-md);background:var(--coconut);font-size:14px;color:var(--soft);border:1px solid var(--line)}
+.feel div b{display:block;font-family:'Unbounded';font-size:14px;color:var(--cocoa);margin-bottom:5px;letter-spacing:-.01em}
+.act{display:grid}
+.act div{display:flex;gap:14px;font-size:15px;color:var(--soft);padding:12px 0;border-top:1px solid var(--line)}
+.act div:last-child{border-bottom:1px solid var(--line)}
+.act div::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--gloss);margin-top:9px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.act b{color:var(--cocoa)}
+@media(max-width:900px){.formula .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* ===== Social (dark chocolate) ===== */
+.social{background:var(--cocoa);color:var(--ivory);position:relative}
+.social::before{content:"";position:absolute;right:-10%;top:-20%;width:50%;height:80%;background:radial-gradient(closest-side,rgba(184,36,58,.25),rgba(184,36,58,0));pointer-events:none}
+.social .wrap{position:relative}
+.social .head p{color:rgba(251,246,239,.7)}
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vid{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:9/16;position:relative;box-shadow:0 30px 50px -30px rgba(0,0,0,.6)}
+.vid img{width:100%;height:100%;object-fit:cover}
+.vid::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.infs{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:44px}
+.inf{border-radius:var(--r-md);overflow:hidden;aspect-ratio:9/16;position:relative}
+.inf img{width:100%;height:100%;object-fit:cover}
+.inf span{position:absolute;left:0;right:0;bottom:0;padding:22px 8px 9px;font-size:11px;font-weight:700;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff}
+.social .stat{display:flex;gap:0;flex-wrap:wrap;margin-top:56px;justify-content:center;text-align:center}
+.social .stat div{padding:0 44px;border-right:1px solid rgba(255,255,255,.14)}
+.social .stat div:last-child{border-right:0}
+.social .stat b{display:block;font-family:'Unbounded';font-size:36px;color:var(--rose);letter-spacing:-.02em;line-height:1}
+.social .stat span{display:block;font-size:14px;color:rgba(251,246,239,.7);margin-top:8px}
+@media(max-width:900px){.vids{grid-template-columns:repeat(2,1fr)}.infs{grid-template-columns:repeat(3,1fr)}.social .stat div{padding:0 20px}}
+
+/* ===== City ===== */
+.city-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.city-grid div{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;background:var(--cream)}
+.city-grid img{width:100%;height:100%;object-fit:cover}
+@media(max-width:700px){.city-grid{grid-template-columns:1fr 1fr}.city-grid div:last-child{display:none}}
+
+/* ===== Collab ===== */
+.collab{background:var(--cream)}
+.collab .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.collab .img{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/5;max-width:440px;box-shadow:0 40px 70px -40px rgba(46,23,18,.5)}
+.collab .img img{width:100%;height:100%;object-fit:cover}
+.collab .kick{display:inline-block;font-family:'Unbounded';font-size:12px!important;letter-spacing:.06em;margin-bottom:14px}
+.collab h2{font-size:clamp(28px,3.6vw,46px)}
+.collab p{margin-top:18px;color:var(--soft);font-size:17px;max-width:520px}
+@media(max-width:900px){.collab .wrap{grid-template-columns:1fr;gap:32px}.collab .img{max-width:100%;aspect-ratio:1}}
+
+/* ===== FAQ ===== */
+.faq .wrap{max-width:860px}
+.faq details{border-top:1px solid var(--line);padding:22px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:18px;gap:20px;font-family:'Unbounded';font-size:15.5px;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:20px;color:var(--cherry);transition:transform .25s,background .2s}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--rose)}
+.faq details p{margin-top:14px;color:var(--soft);max-width:680px;font-size:15.5px}
+
+/* ===== Order ===== */
+.order{background:var(--ivory);border-top:1px solid var(--line);position:relative}
+.order::before{content:"";position:absolute;right:-5%;bottom:-10%;width:45%;height:70%;background:radial-gradient(closest-side,rgba(243,199,192,.6),rgba(243,199,192,0));pointer-events:none}
+.order .wrap{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;grid-template-areas:"intro form" "aside form";gap:0 64px;align-items:start}
+.order-intro{grid-area:intro}.order-aside{grid-area:aside}.order .form{grid-area:form}
+.order h2{font-size:clamp(30px,4.2vw,54px)}
+.order .note{margin-top:18px;color:var(--soft);font-size:17px;max-width:460px}
+.contact-list{display:grid;gap:10px;margin-top:36px;max-width:420px}
+.contact-list a{display:flex;align-items:center;gap:12px;font-weight:600;padding:14px 18px;background:var(--coconut);border-radius:var(--r-md);border:1px solid var(--line);transition:border-color .15s,transform .15s}
+.contact-list a:hover{border-color:var(--cherry);transform:translateX(3px)}
+.contact-list svg{width:22px;height:22px;flex:none;color:var(--cherry)}
+.form{position:sticky;top:96px;background:var(--coconut);border-radius:var(--r-xl);padding:34px;border:1px solid var(--line);box-shadow:0 50px 90px -50px rgba(46,23,18,.55)}
+.form::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.9);pointer-events:none}
+.step{display:flex;align-items:center;gap:10px;font-family:'Unbounded';font-size:13px;font-weight:700;margin:22px 0 12px;letter-spacing:-.01em}
+.step:first-of-type{margin-top:0}
+.step em{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--cocoa);color:var(--coconut);display:grid;place-items:center;font-size:11px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13.5px;font-weight:600;margin-bottom:8px;color:var(--cocoa2)}
+.field input,.field select{width:100%;padding:15px 16px;border-radius:var(--r-md);border:1.5px solid var(--line2);background:var(--ivory);font:inherit;font-size:15px;color:var(--cocoa);transition:border-color .15s,box-shadow .15s}
+.field input::placeholder{color:rgba(123,92,78,.55)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--cherry);box-shadow:0 0 0 4px rgba(184,36,58,.12);background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form .btn{width:100%;padding:18px;font-size:16px;margin-top:8px}
+.promo{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#FCE9E5,#F7D6D0);border:1px solid rgba(184,36,58,.18);border-radius:var(--r-md);padding:12px 14px;font-size:14px;font-weight:700;margin-bottom:22px;color:var(--cocoa)}
+.promo .tag{flex:none;font-family:'Unbounded';font-weight:900;font-size:18px;letter-spacing:-.04em;color:#fff;background:var(--gloss);padding:8px 12px;border-radius:12px;box-shadow:0 8px 16px -8px rgba(184,36,58,.6);transform:rotate(-4deg)}
+.promo small{display:block;font-weight:500;font-size:12.5px;color:var(--soft);margin-top:1px}
+.slots{display:grid;gap:10px}
+.slot{position:relative;display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r-md);background:var(--ivory);border:1.5px solid var(--line2);cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s,transform .12s;text-align:left}
+.slot:hover{background:#fff;border-color:var(--cocoa2)}
+.slot.filled{border-color:var(--cocoa);background:#fff}
+.slot.gift{border-style:dashed;border-color:rgba(184,36,58,.55);background:#FFF4F1}
+.slot.gift.filled{border-style:solid;border-color:var(--cherry);background:#fff}
+.slot.locked{cursor:default;opacity:.62;background:var(--cream);border-style:dashed;border-color:var(--line2)}
+.slot.locked:hover{border-color:var(--line2)}
+.slot-n{width:36px;height:36px;border-radius:50%;background:var(--cocoa);color:var(--coconut);display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:13px}
+.slot.gift .slot-n{background:var(--gloss);font-size:17px}
+.slot.locked .slot-n{background:var(--cream2);color:var(--soft)}
+.slot-body{min-width:0}
+.slot-label{font-size:12px;font-weight:700;color:var(--soft);letter-spacing:.01em}
+.slot-val{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700;font-size:15px;margin-top:2px;line-height:1.3}
+.slot:not(.filled) .slot-val{color:var(--cherry)}
+.slot.locked .slot-val{color:var(--soft);font-weight:600;font-size:13.5px}
+.slot-val small{font-weight:500;color:var(--soft);font-size:13px}
+.slot-val .dot{width:14px;height:14px;margin:0}
+.slot-price{font-family:'Unbounded';font-weight:700;font-size:13px;white-space:nowrap;text-align:right}
+.free{color:var(--cherry);font-family:'Unbounded';font-weight:900}
+.slot-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.slot.flash{animation:slotFlash .9s ease}
+@keyframes slotFlash{0%{box-shadow:0 0 0 0 rgba(184,36,58,.45)}60%{box-shadow:0 0 0 8px rgba(184,36,58,0)}100%{box-shadow:0 0 0 0 rgba(184,36,58,0)}}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.linkbtn{margin-top:14px;font-weight:700;font-size:14px;color:var(--cherry);text-decoration:underline;text-underline-offset:3px}
+.how{list-style:none;counter-reset:how;display:grid;gap:14px;margin-top:30px;max-width:460px}
+.how li{counter-increment:how;display:grid;grid-template-columns:34px 1fr;gap:2px 14px;align-items:start}
+.how li::before{grid-row:1/3}.how b,.how span{grid-column:2}
+.how li::before{content:counter(how);width:34px;height:34px;border-radius:50%;background:var(--cocoa);color:var(--coconut);display:grid;place-items:center;font-family:'Unbounded';font-weight:800;font-size:13px}
+.how b{display:block;font-size:15.5px}
+.how span{display:block;font-size:14px;color:var(--soft);margin-top:2px}
+.btn.soon{background:var(--cream2);color:var(--soft);cursor:default;box-shadow:none}
+.btn.soon::before{display:none}
+.btn.soon:hover{transform:none}
+.sticker{cursor:pointer}
+.sticker:hover{transform:rotate(-8deg) scale(1.04)}
+.slot-chev{font-size:11.5px;font-weight:700;color:var(--soft);text-align:right;padding:3px 9px;border-radius:999px;background:var(--cream)}
+.slot.filled .slot-chev{background:transparent;color:var(--cherry)}
+.slot.locked .slot-chev{display:none}
+.slot-x{position:absolute;top:-9px;right:-9px;width:24px;height:24px;border-radius:50%;background:var(--coconut);color:var(--soft);font-size:11px;box-shadow:0 0 0 1.5px var(--line2);display:grid;place-items:center}
+.slot-x:hover{background:var(--cherry);color:#fff;box-shadow:none}
+.addslot{margin-top:10px;padding:12px 16px;border-radius:999px;border:1.5px dashed var(--line2);font-weight:700;font-size:13.5px;color:var(--cocoa2);width:100%;transition:border-color .15s,background .15s}
+.addslot:hover{border-color:var(--cocoa);background:#fff}
+.summary{display:none;margin-top:6px;font-size:14px;color:var(--soft)}
+.summary.on{display:block}
+.summary div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px dashed var(--line)}
+.summary div b{color:var(--cocoa);font-weight:700;white-space:nowrap}
+.summary .gift-row{color:var(--cocoa)}
+.summary .hint-row{display:block;background:#FFF1EE;border:1.5px dashed rgba(184,36,58,.55);border-radius:var(--r-md);padding:10px 14px;margin-top:8px;color:var(--cocoa2);font-weight:600;animation:promoIn .35s cubic-bezier(.2,1.2,.3,1)}
+.summary .hint-row .free{font-size:13px}
+@keyframes promoIn{from{transform:scale(.96);opacity:0}to{transform:none;opacity:1}}
+.form .total{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 8px;padding-top:16px;border-top:1px solid var(--line2);font-weight:600;color:var(--soft)}
+.form .total b{font-family:'Unbounded';font-size:26px;color:var(--cocoa);letter-spacing:-.02em}
+.ferr{display:none;background:#FFF1EE;color:var(--cherry);border:1.5px solid rgba(184,36,58,.4);border-radius:var(--r-md);padding:10px 14px;font-size:14px;font-weight:600;margin-bottom:6px}
+.ferr.on{display:block;animation:promoIn .3s}
+.fine{margin-top:14px;font-size:12.5px;color:var(--soft);line-height:1.5;text-align:center}
+.success{display:none;text-align:center;padding:24px 6px}
+.success h3{font-size:24px;margin-bottom:10px}
+.success p{color:var(--soft)}
+.oklist{list-style:none;margin:18px auto 0;max-width:320px;text-align:left;display:grid;gap:8px}
+.oklist li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--ivory);border:1px solid var(--line);border-radius:var(--r-md);font-weight:700;font-size:14px}
+.oklist li .dot{margin:0}
+.oklist li.gift{border-color:rgba(184,36,58,.45);background:#FFF4F1}
+.oktotal{margin-top:16px;font-size:14px;color:var(--soft)}.oktotal b{font-family:'Unbounded';color:var(--cocoa);font-size:16px}
+.form.sent .fields{display:none}.form.sent .success{display:block}
+/* picker sheet */
+body.noscroll{overflow:hidden}
+.picker{position:fixed;inset:0;z-index:100;background:rgba(46,23,18,.55);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:0}
+.picker[hidden]{display:none}
+.picker-sheet{width:100%;max-width:760px;max-height:88vh;background:var(--coconut);border-radius:28px 28px 0 0;display:flex;flex-direction:column;animation:sheetUp .35s cubic-bezier(.2,.9,.2,1)}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.picker-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:22px 22px 14px}
+.picker-head>div{flex:1;min-width:0}
+.picker-head b{display:block;font-family:'Unbounded';font-size:16px;letter-spacing:-.01em}
+.picker-head span{display:block;font-size:13.5px;color:var(--soft);margin-top:4px}
+.picker-close{flex:none;width:38px;height:38px;border-radius:50%;background:var(--cream);font-size:15px;color:var(--cocoa)}
+.picker-close:hover{background:var(--rose)}
+.picker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 22px 26px;overflow-y:auto}
+.ptile{position:relative;text-align:left;background:var(--ivory);border:1.5px solid var(--line);border-radius:var(--r-md);padding:8px 8px 10px;transition:border-color .15s,transform .12s,box-shadow .15s}
+.ptile:hover{border-color:var(--cocoa);transform:translateY(-2px);box-shadow:0 14px 24px -18px rgba(46,23,18,.5)}
+.ptile.cur{border-color:var(--cherry);box-shadow:0 0 0 3px rgba(184,36,58,.14)}
+.ptile[disabled]{opacity:.5;cursor:not-allowed}
+.ptile-ph{position:relative;display:block;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--cream)}
+.ptile-ph img,.ptile-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ptile-ph em{position:absolute;left:8px;bottom:8px;font-style:normal;font-size:10px;font-weight:700;background:rgba(46,23,18,.7);color:#fff;padding:4px 8px;border-radius:999px}
+.ptile-ph em.hit{left:auto;right:8px;top:8px;bottom:auto;background:var(--gloss)}
+.ptile-ph em.used{background:rgba(255,253,250,.92);color:var(--cocoa)}
+.picker-prog{flex:none;font-family:'Unbounded';font-size:12px;font-weight:700;color:var(--soft);background:var(--cream);padding:8px 12px;border-radius:999px;margin-right:8px}
+.ptile-name{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;margin-top:9px;line-height:1.2}
+.ptile-name .dot{width:11px;height:11px;margin:0;flex:none}
+.ptile-aroma{display:block;font-size:11.5px;color:var(--soft);margin-top:2px}
+@media(min-width:900px){.picker{align-items:center;padding:24px}.picker-sheet{border-radius:28px;max-height:84vh}}
+@media(max-width:560px){.picker-grid{grid-template-columns:repeat(3,1fr);gap:8px;padding:0 14px 20px}.ptile{padding:6px 6px 8px}.ptile-name{font-size:12px}.picker-head{padding:18px 16px 12px}.slot{grid-template-columns:32px 1fr auto;gap:10px;padding:12px 12px}.slot-n{width:32px;height:32px;font-size:12px}.slot-val{font-size:14px}.slot-price{font-size:12px}}
+@media(max-width:900px){.order .wrap{grid-template-columns:1fr;grid-template-areas:"intro" "form" "aside";gap:26px 0}.form{position:static}.how{margin-top:6px}.contact-list{margin-top:22px}}
+
+/* ===== Footer ===== */
+footer{padding:44px 0;font-size:14px;color:var(--soft);border-top:1px solid var(--line);background:var(--cream)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+
+/* ===== Mobile sticky CTA ===== */
+.mob-cta{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60}
+.mob-cta .btn{width:100%;padding:17px;box-shadow:0 18px 34px -12px rgba(184,36,58,.7)}
+@media(max-width:640px){.mob-cta{display:block}body{padding-bottom:84px}}
+
+/* ===== Mobile polish ===== */
+@media(max-width:640px){
+  section{padding:68px 0}
+  .head{margin-bottom:32px}.head p{font-size:16px}
+  .hero h1{font-size:42px}
+  .hero-cta .btn{padding:15px 22px;font-size:15px;flex:1}
+  .hero-stats{margin-top:30px}.hero-stats b{font-size:21px}
+  .hero .pic{aspect-ratio:1/1.1}
+  .s .ph .hint{font-size:10px;padding:5px 8px}
+  .s h3{font-size:13px}.s .meta{font-size:12px;margin:6px 0 10px}
+  .vids{grid-template-columns:repeat(2,1fr);gap:10px}
+  .infs{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;margin:24px -24px 0;padding:0 24px;scrollbar-width:none}
+  .infs::-webkit-scrollbar{display:none}
+  .infs .inf{flex:0 0 42%;scroll-snap-align:start}
+  .social .stat{gap:16px 0}.social .stat b{font-size:26px}.social .stat div{padding:0 16px}
+  .city-grid{display:flex;overflow-x:auto;gap:10px;margin:0 -24px;padding:0 24px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .city-grid div{flex:0 0 72%;scroll-snap-align:start;display:block!important}
+  .form{padding:22px;border-radius:26px}
+  .why-img{aspect-ratio:1}
+  .promo{font-size:13px}
+  .hero .kick{font-size:12px;padding:7px 12px 7px 9px;margin-bottom:18px}
+}
+.mob-cta.hide{display:none}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <a href="#" class="logo">LIPSS</a>
+  <nav class="nav-links">
+    <a href="#ranglar" data-i18n="n1">Ranglar</a><a href="#formula" data-i18n="n2">Tarkib</a><a href="#social" data-i18n="n3">Blogerlar</a><a href="#faq" data-i18n="n4">Savollar</a>
+  </nav>
+  <div class="nav-right">
+    <a href="#buyurtma" class="btn cherry" data-i18n="cta">Buyurtma berish</a>
+  </div>
+</div></header>
+
+<section class="hero">
+  <div class="txt">
+    <span class="kick">Ukrainaning №1 brendi, endi O'zbekistonda</span>
+    <h1>Sizning yangi shirin desertingiz</h1>
+    <p data-i18n="h.p">LIPSS — bu shunchaki lab-blesk emas. Bu his. Kayfiyat. Vishnya, kofe, popkorn, kruassan hidi — va 4–6 soat davomida yaltiroq, namlangan lablar.</p>
+    <div class="hero-cta"><a href="#buyurtma" class="btn cherry">Buyurtma berish</a><a href="#ranglar" class="btn ghost">Ranglarni ko'rish</a></div>
+    <div class="hero-stats">
+      <div><b>13</b><span>rang va hid</span></div>
+      <div><b>4–6</b><span>soat chidamlilik</span></div>
+      <div><b>0%</b><span>yopishqoqlik</span></div>
+      <div><b>1.9M</b><span>ko'rish, eng mashhur video</span></div>
+    </div>
+  </div>
+  <div class="pic"><a href="#buyurtma" class="sticker" aria-label="3 ta olsangiz, 1 tasi tekin"><b>3+1</b><small>3 ta olsangiz, 1 tasi tekin</small><i>145 000 so'm / dona</i></a><img src="img/01.webp" alt="LIPSS Cherry" fetchpriority="high" decoding="async"></div>
+</section>
+
+<div class="trust"><div class="wrap">
+  <div><i>✔</i><span>Original LIPSS, rasmiy hamkor</span></div>
+  <div><i>💳</i><span>To'lov qabul qilganda</span></div>
+  <div><i>🚚</i><span>Toshkentga 1 kun, viloyatlarga 2–4 kun</span></div>
+  <div><i>💬</i><span>Operator 15 daqiqada bog'lanadi</span></div>
+</div></div>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="mq"></div></div>
+
+<section>
+  <div class="wrap why-grid">
+    <div class="why-img"><img src="img/02.webp" alt="" loading="lazy"></div>
+    <div>
+      <div class="head" style="margin-bottom:28px"><h2 data-i18n="w.h2">Nega hamma LIPSS'ni xohlaydi</h2></div>
+      <div class="why-list">
+        <div class="w"><div class="ic">🍒</div><div><h3 data-i18n="w1h">Hidi — yegingiz keladi</h3><p data-i18n="w1p">Biz shunchaki hid qo'shmaymiz — his yaratamiz. Vishnya, latte, popkorn, kruassan, tarvuz…</p></div></div>
+        <div class="w"><div class="ic" style="background:#F6D6CE">✨</div><div><h3 data-i18n="w2h">Tekstura — wow</h3><p data-i18n="w2p">Yopishmaydi, og'irlik qilmaydi, plyonka qoldirmaydi. Qalin, oqib ketmaydigan, aniq kontur bilan yotadi.</p></div></div>
+        <div class="w"><div class="ic" style="background:var(--cream2)">💋</div><div><h3 data-i18n="w3h">Ranglar hammaga yarashadi</h3><p data-i18n="w3p">"Murakkab" ranglar yo'q — faqat tabiiy go'zallikni ochib beradiganlari. Shaffofdan to'q qizilgacha.</p></div></div>
+        <div class="w"><div class="ic" style="background:var(--caramel)">🎁</div><div><h3 data-i18n="w4h">Sovg'a uchun ideal</h3><p data-i18n="w4p">Chiroyli, arzon, dolzarb. Dugona, singil, o'zingiz uchun — har doim "xohlayman" effekti.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shades" id="ranglar">
+  <div class="wrap">
+    <div class="head"><h2 data-i18n="s.h2">13 ta rang. 13 ta desert.</h2><p data-i18n="s.p">Kartaga bosing yoki ustiga olib boring — labda qanday ko'rinishini ko'rasiz.</p></div>
+    <div class="filters">
+      <button class="on" data-f="all" data-i18n="f.all">Hammasi</button>
+      <button data-f="clear" data-i18n="f.clear">Shaffof</button>
+      <button data-f="nude" data-i18n="f.nude">Nyud</button>
+      <button data-f="pink" data-i18n="f.pink">Pushti</button>
+      <button data-f="red" data-i18n="f.red">Qizil / qoramtir</button>
+      <button data-f="glitter" data-i18n="f.glit">Yaltiroq</button>
+    </div>
+    <div class="sgrid" id="sgrid"></div>
+  </div>
+</section>
+
+
+<section style="padding-top:0;background:var(--coconut)">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:24px"><h2 style="font-size:clamp(24px,3.2vw,40px)" data-i18n="g.h2">Labda qanday ko'rinadi</h2></div>
+    <div class="lips-strip">
+      <figure><img src="img/03.webp" alt="" loading="lazy"><figcaption>Butter Croissant</figcaption></figure>
+      <figure><img src="img/04.webp" alt="" loading="lazy"><figcaption>Cherry</figcaption></figure>
+      <figure><img src="img/05.webp" alt="" loading="lazy"><figcaption>Kherson Watermelon</figcaption></figure>
+      <figure><img src="img/06.webp" alt="" loading="lazy"><figcaption>Latte</figcaption></figure>
+      <figure><img src="img/07.webp" alt="" loading="lazy"><figcaption>Smells Like Money</figcaption></figure>
+      <figure><img src="img/08.webp" alt="" loading="lazy"><figcaption>Fig</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="formula" id="formula">
+  <div class="wrap">
+    <div class="img"><img src="img/09.webp" alt="" loading="lazy"></div>
+    <div>
+      <div class="head" style="margin-bottom:0"><h2 data-i18n="fo.h2">Har bir blesk — oylab sinovdan o'tgan formula</h2><p data-i18n="fo.p">Bitta maqsad: qayta-qayta xohlanadigan mahsulot yaratish.</p></div>
+      <div class="feel">
+        <div><b data-i18n="fe1b">4–6 soat</b><span data-i18n="fe1">chidamlilik, namlik kun bo'yi</span></div>
+        <div><b data-i18n="fe2b">0% yopishqoq</b><span data-i18n="fe2">labda noqulaylik yo'q</span></div>
+        <div><b data-i18n="fe3b">Aniq kontur</b><span data-i18n="fe3">qulay dozator, oqmaydi</span></div>
+        <div><b data-i18n="fe4b">Himoya</b><span data-i18n="fe4">sovuq, shamol, sho'r suvdan</span></div>
+      </div>
+      <div class="act">
+        <div><span><b data-i18n="a1b">Mimetik peptid</b> — <span data-i18n="a1">lab hajmini oshiradi, elastiklik beradi</span></span></div>
+        <div><span><b data-i18n="a2b">Seramidlar</b> — <span data-i18n="a2">terini tiklaydi, yoriqlarni bitiradi</span></span></div>
+        <div><span><b data-i18n="a3b">Vitamin E</b> — <span data-i18n="a3">antioksidant, kollagen ishlab chiqarishga yordam beradi</span></span></div>
+        <div><span><b data-i18n="a4b">Portulak ekstrakti</b> — <span data-i18n="a4">kversetin va rutin, tabiiy himoya va namlik balansi</span></span></div>
+        <div><span><b data-i18n="a5b">Glikolipidlar</b> — <span data-i18n="a5">teri to'sig'ini tiklaydi va namlaydi</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social" id="social">
+  <div class="wrap">
+    <div class="head"><h2 data-i18n="so.h2">Har kuni 20+ eslatma. Odamlar sevganini baham ko'radi.</h2><p data-i18n="so.p">Millionli blogerlar, top vizajistlar, stilistlar — va eng muhimi, oddiy qizlar. Biz "kosmetika qilmaymiz", biz sevib qolinadigan mahsulot yaratamiz.</p></div>
+    <div class="vids">
+      <div class="vid"><img src="img/10.webp" alt="" loading="lazy"></div>
+      <div class="vid"><img src="img/11.webp" alt="" loading="lazy"></div>
+      <div class="vid"><img src="img/12.webp" alt="" loading="lazy"></div>
+      <div class="vid"><img src="img/13.webp" alt="" loading="lazy"></div>
+    </div>
+    <div class="infs">
+      <div class="inf"><img src="img/14.webp" alt="" loading="lazy"><span>@valerakomarova</span></div>
+      <div class="inf"><img src="img/15.webp" alt="" loading="lazy"><span>@kvittkova</span></div>
+      <div class="inf"><img src="img/16.webp" alt="" loading="lazy"><span>@saba.musina</span></div>
+      <div class="inf"><img src="img/17.webp" alt="" loading="lazy"><span>@dashatm19</span></div>
+      <div class="inf"><img src="img/18.webp" alt="" loading="lazy"><span>@tanyaparfileva</span></div>
+      <div class="inf"><img src="img/19.webp" alt="" loading="lazy"><span>@alina_frendiy</span></div>
+    </div>
+    <div class="stat">
+      <div><b>1.9M</b><span data-i18n="st1">ko'rish — bitta video</span></div>
+      <div><b>688K</b><span data-i18n="st2">ko'rish — sharh</span></div>
+      <div><b>2024</b><span data-i18n="st3">yil aprel — brend tashkil topgan</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2 data-i18n="c.h2">Butun shahar LIPSS haqida gapiradi</h2><p data-i18n="c.p">Kiyevda brendlangan metro poyezdi, Lvov markazida tramvay, Gulliver savdo markazidagi eng katta LED-ekran, kinoteatr ekranlari, ЦУМ tomidagi bloger-ivent.</p></div>
+    <div class="city-grid">
+      <div><img src="img/20.webp" alt="" loading="lazy"></div>
+      <div><img src="img/21.webp" alt="" loading="lazy"></div>
+      <div><img src="img/22.webp" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="collab">
+  <div class="wrap">
+    <div class="img"><img src="img/23.webp" alt="LIPSS x CHER'17" loading="lazy"></div>
+    <div>
+      <span class="kick" style="font-weight:700;color:var(--cherry);font-size:13px">LIPSS × CHER'17</span>
+      <h2 data-i18n="co.h2">Cheklangan launchlar — chiqishi bilan tugaydi</h2>
+      <p data-i18n="co.p">Brendlar bilan hamkorlik to'plamlari, mavsumiy ranglar va special collection'lar. Kim ulgursa — o'shaniki. Yangi launch haqida birinchi bo'lib bilish uchun Telegram kanalimizga qo'shiling.</p>
+      <div style="margin-top:24px"><a href="https://t.me/lipss_uz" class="btn ghost" target="_blank" rel="noopener" data-i18n="co.cta">Telegram kanalga qo'shilish</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="head"><h2 data-i18n="q.h2">Ko'p so'raladigan savollar</h2></div>
+    <details><summary data-i18n="q1">Bu original LIPSS'mi?</summary><p data-i18n="q1a">Ha. Biz LIPSS'ning O'zbekistondagi rasmiy hamkorimiz. Har bir mahsulot brend fabrikasidan to'g'ridan-to'g'ri keladi.</p></details>
+    <details><summary data-i18n="q2">Qaysi rangni tanlasam bo'ladi?</summary><p data-i18n="q2a">Kundalik uchun — Salted Caramel, Latte yoki Butter Croissant. Yorqinroq ko'rinish uchun — Cherry, Fig, Raspberry Gelato. Kechki chiqish uchun — Smells Like Money yoki Coffee. Ishonchingiz komil bo'lmasa, operatorimiz yordam beradi.</p></details>
+    <details><summary data-i18n="q3">Yopishqoqmi?</summary><p data-i18n="q3a">Yo'q. Bu LIPSS'ning asosiy farqi — qalin, lekin yopishmaydigan tekstura. Sochingiz labga yopishmaydi.</p></details>
+    <details><summary data-i18n="q4">Yetkazib berish va to'lov</summary><p data-i18n="q4a">Toshkent bo'ylab 1 kunda, viloyatlarga 2–4 kun. To'lov — qabul qilganda naqd yoki karta orqali.</p></details>
+  </div>
+</section>
+
+<section class="order" id="buyurtma">
+  <div class="wrap">
+    <div class="order-intro">
+      <h2>Ranglarni tanlang, qolganini biz qilamiz</h2>
+      <p class="note">Ism va raqamingizni qoldiring. Operator 15 daqiqa ichida qo'ng'iroq qilib, rang va yetkazib berishni tasdiqlaydi. To'lov mahsulotni qo'lingizga olganda.</p>
+    </div>
+    <div class="order-aside">
+      <ol class="how">
+        <li><b>Rangni tanlang</b><span>Har bir blesk uchun bittadan, sovg'a uchun ham.</span></li>
+        <li><b>Ism va raqamingizni yozing</b><span>Boshqa hech narsa kerak emas.</span></li>
+        <li><b>Operator qo'ng'iroq qiladi</b><span>15 daqiqada. Manzilni aytasiz, kuryer olib keladi, to'lovni shunda qilasiz.</span></li>
+      </ol>
+      <div class="contact-list">
+        <a href="tel:+998000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+998 00 000 00 00</a>
+        <a href="https://t.me/lipss_uz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 18.6 20c-.2 1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2L6 13.5l-4.9-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.7.2 1.4 1.6z"/></svg>Telegram: @lipss_uz</a>
+        <a href="https://instagram.com/lipss.care" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram: @lipss.care</a>
+      </div>
+    </div>
+    <div class="form" id="orderForm">
+      <div class="fields">
+        <div class="promo" id="promoBanner"><span class="tag">3+1</span><div>3 ta blesk oling, 4-chisi sovg'a<small>Har bir blesk 145 000 so'm. Sovg'a bleskning rangini ham o'zingiz tanlaysiz.</small></div></div>
+        <div class="step"><em>1</em>Har bir blesk uchun rang tanlang</div>
+        <div class="slots" id="slots"></div>
+        <button type="button" class="addslot" id="addSlot">+ Yana blesk qo'shish</button>
+        <div class="step"><em>2</em>Ism va telefon</div>
+        <div class="field"><label for="name">Ismingiz</label><input id="name" type="text" placeholder="Masalan: Madina" autocomplete="name" autocapitalize="words"></div>
+        <div class="field"><label for="phone">Telefon raqamingiz</label><input id="phone" type="tel" placeholder="+998 __ ___ __ __" autocomplete="tel" inputmode="tel" enterkeyhint="done"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+        <div class="summary" id="summary"></div>
+        <div class="total"><span>Jami to'lov</span><b id="total"></b></div>
+        <div class="ferr" id="formErr"></div>
+        <button class="btn cherry" id="submitBtn" type="button">Buyurtma berish</button>
+        <p class="fine">Operator 15 daqiqa ichida qo'ng'iroq qilib, manzil va yetkazib berishni aniqlashtiradi. To'lov mahsulot qo'lingizga kelganda.</p>
+      </div>
+      <div class="success">
+        <h3>Buyurtma qabul qilindi 💋</h3>
+        <p>Operator 15 daqiqa ichida siz bilan bog'lanadi.</p>
+        <ul class="oklist" id="okList"></ul>
+        <div class="oktotal">Jami to'lov (qo'lingizga kelganda): <b id="okTotal"></b></div>
+        <p class="fine" style="margin-top:18px">Savol bo'lsa: <a href="tel:+998000000000"><b>+998 00 000 00 00</b></a> yoki Telegram <a href="https://t.me/lipss_uz" target="_blank" rel="noopener"><b>@lipss_uz</b></a></p>
+        <button type="button" class="linkbtn" id="againBtn">Yana bitta buyurtma berish</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="picker" id="picker" hidden>
+  <div class="picker-sheet" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+    <div class="picker-head">
+      <div><b id="pickerTitle">Rangni tanlang</b><span id="pickerSub"></span></div>
+      <span class="picker-prog" id="pickerProg"></span>
+      <button type="button" class="picker-close" id="pickerClose" aria-label="Yopish">✕</button>
+    </div>
+    <div class="picker-grid" id="pickerGrid"></div>
+  </div>
+</div>
+
+<footer><div class="wrap"><div class="logo" style="font-size:18px">LIPSS</div><div>© 2026 LIPSS Uzbekistan, rasmiy hamkor</div></div></footer>
+<div class="mob-cta"><a href="#buyurtma" class="btn cherry">Buyurtma berish</a></div>
+
+<script>
+// ======= NARX: bitta joyda o'zgartiriladi =======
+const PRICE = 145000;   // so'm, bitta blesk
+// ======= BUYURTMA QAYERGA BORADI (kamida bittasini to'ldiring) =======
+const TG_BOT_TOKEN   = '';   // Telegram: @BotFather dan olingan token, masalan '123456789:AAxxxxxxxx'
+const TG_CHAT_ID     = '';   // Telegram: buyurtma tushadigan guruh/chat ID, masalan '-1001234567890'
+const BITRIX_WEBHOOK = '';   // Bitrix24 kiruvchi vebhuk, masalan 'https://sizning.bitrix24.kz/rest/1/abcd1234/'
+const SITE_TAG       = '3+1'; // bu sayt nomi — buyurtma xabarida ko'rinadi
+// Aksiya: 3 ta olsa — 1 tasi tekin (3+1)
+const NEED = 3; // aksiya uchun kerakli minimal soni
+function bonusFor(qty){
+  if(qty >= NEED) return {n:1, tag:'3+1'};
+  return {n:0, tag:''};
+}
+
+const SHADES = [
+ {id:'cherry',name:'Cherry',t:'img/24.webp',l:'img/04.webp',hex:'#B5303F',tag:'red',color:{uz:'qizil',uzc:'қизил',ru:'красный'},aroma:{uz:'vishnya',uzc:'вишня',ru:'вишня'},hit:true},
+ {id:'coffee',name:'Coffee',t:'img/25.webp',l:'img/26.webp',hex:'#6B3F2E',tag:'red',color:{uz:'jigarrang',uzc:'жигарранг',ru:'коричневый'},aroma:{uz:'kofe',uzc:'кофе',ru:'кофе'}},
+ {id:'caramel',name:'Salted Caramel',t:'img/27.webp',l:'img/28.webp',hex:'#F3E4D2',tag:'clear',color:{uz:'shaffof',uzc:'шаффоф',ru:'прозрачный'},aroma:{uz:'sho\u2019r karamel',uzc:'шўр карамель',ru:'солёная карамель'},hit:true},
+ {id:'fig',name:'Fig',t:'img/29.webp',l:'img/08.webp',hex:'#D9647A',tag:'pink',color:{uz:'pushti',uzc:'пушти',ru:'розовый'},aroma:{uz:'anjir',uzc:'анжир',ru:'инжир'}},
+ {id:'latte',name:'Latte',t:'img/30.webp',l:'img/06.webp',hex:'#C9A07E',tag:'nude',color:{uz:'bej',uzc:'беж',ru:'бежевый'},aroma:{uz:'latte',uzc:'латте',ru:'латте'},hit:true},
+ {id:'kyiv',name:'Kyiv Cake',t:'img/31.webp',l:'img/32.webp',hex:'#F1E1D0',tag:'clear',color:{uz:'shaffof',uzc:'шаффоф',ru:'прозрачный'},aroma:{uz:'Kiyev torti',uzc:'Киев торти',ru:'Киевский торт'}},
+ {id:'money',name:'Smells Like Money',t:'img/33.webp',l:'img/07.webp',hex:'#4A2C22',tag:'glitter',color:{uz:'shokolad, oltin yaltiroq',uzc:'шоколад, олтин ялтироқ',ru:'шоколадный с золотыми блёстками'},aroma:{uz:'kofe va dolchin',uzc:'кофе ва долчин',ru:'кофе с корицей'}},
+ {id:'popcorn',name:'Popcorn',t:'img/34.webp',l:'img/35.webp',hex:'#E89AA5',tag:'glitter',color:{uz:'pushti, yaltiroq',uzc:'пушти, ялтироқ',ru:'розовый с блёстками'},aroma:{uz:'shirin popkorn',uzc:'ширин попкорн',ru:'сладкий попкорн'}},
+ {id:'croissant',name:'Butter Croissant',t:'img/36.webp',l:'img/03.webp',hex:'#F2C6C0',tag:'nude',color:{uz:'nozik pushti',uzc:'нозик пушти',ru:'нежно-розовый'},aroma:{uz:'sariyog\u2019li kruassan',uzc:'сариёғли круассан',ru:'масляный круассан'}},
+ {id:'lemon',name:'Lemon Sorbet',t:'img/37.webp',l:'img/05.webp',hex:'#F6E7B0',tag:'glitter',color:{uz:'shaffof, yaltiroq',uzc:'шаффоф, ялтироқ',ru:'прозрачный с блёстками'},aroma:{uz:'limon sorbeti',uzc:'лимон сорбети',ru:'лимонный сорбет'},isNew:true},
+ {id:'rasp',name:'Raspberry Gelato',t:'img/38.webp',l:'img/39.webp',hex:'#C8385A',tag:'pink',color:{uz:'malina',uzc:'малина',ru:'малиновый'},aroma:{uz:'malina muzqaymoq',uzc:'малина музқаймоқ',ru:'малиновое мороженое'}},
+ {id:'melon',name:'Kherson Watermelon',t:'img/40.webp',l:'img/05.webp',hex:'#E98A8A',tag:'pink',color:{uz:'pushti',uzc:'пушти',ru:'розовый'},aroma:{uz:'tarvuz',uzc:'тарвуз',ru:'арбуз'},isNew:true},
+ {id:'lychee',name:'Lychee Spritz',t:null,l:null,hex:'#F08A7A',tag:'glitter',color:{uz:'marjon, oltin yaltiroq',uzc:'маржон, олтин ялтироқ',ru:'коралловый с золотыми блёстками'},aroma:{uz:'lichi',uzc:'личи',ru:'личи'}},
+];
+
+const I18N={
+uz:{"t1":"Original LIPSS, rasmiy hamkor","t2":"To'lov — qabul qilganda","t3":"Toshkent — 1 kun, viloyat — 2–4 kun","t4":"Operator 15 daqiqada bog'lanadi","g.h2":"Labda qanday ko'rinadi",meta:"LIPSS — sizning yangi shirin desertingiz",n1:"Ranglar",n2:"Tarkib",n3:"Blogerlar",n4:"Savollar",cta:"Buyurtma berish",
+ "h.kick":"🇺🇦 Ukrainaning №1 kosmetika brendi · endi O'zbekistonda","h.h1":"Your new fantasy dessert",
+ "h.p":"LIPSS — bu shunchaki lab-blesk emas. Bu his. Kayfiyat. Vishnya, kofe, popkorn, kruassan hidi — va 4–6 soat davomida yaltiroq, namlangan lablar.",
+ "h.c1":"Rangni tanlash","h.s1":"rang va hid","h.s2":"soat chidamlilik","h.s3":"eslatma kuniga Instagram'da","h.s4":"ko'rish — eng mashhur video",
+ "w.h2":"Nega hamma LIPSS'ni xohlaydi",w1h:"Hidi — yegingiz keladi",w1p:"Biz shunchaki hid qo'shmaymiz — his yaratamiz. Vishnya, latte, popkorn, kruassan, tarvuz…",
+ w2h:"Tekstura — wow",w2p:"Yopishmaydi, og'irlik qilmaydi, plyonka qoldirmaydi. Qalin, oqib ketmaydigan, aniq kontur bilan yotadi.",
+ w3h:"Ranglar hammaga yarashadi",w3p:"\"Murakkab\" ranglar yo'q — faqat tabiiy go'zallikni ochib beradiganlari. Shaffofdan to'q qizilgacha.",
+ w4h:"Sovg'a uchun ideal",w4p:"Chiroyli, arzon, dolzarb. Dugona, singil, o'zingiz uchun — har doim \"xohlayman\" effekti.",
+ "s.h2":"13 ta rang. 13 ta desert.","s.p":"Kartaga bosing yoki ustiga olib boring — labda qanday ko'rinishini ko'rasiz.",
+ "f.all":"Hammasi","f.clear":"Shaffof","f.nude":"Nyud","f.pink":"Pushti","f.red":"Qizil / qoramtir","f.glit":"Yaltiroq",
+ lbl_color:"Rang",lbl_aroma:"Hid",hint:"labda ko'rish",hit:"Xit",isnew:"Yangi",pick:"Tanlash",soon:"Tez kunda",
+ "fo.h2":"Har bir blesk — oylab sinovdan o'tgan formula","fo.p":"Bitta maqsad: qayta-qayta xohlanadigan mahsulot yaratish.",
+ fe1b:"4–6 soat",fe1:"chidamlilik, namlik kun bo'yi",fe2b:"0% yopishqoq",fe2:"labda noqulaylik yo'q",fe3b:"Aniq kontur",fe3:"qulay dozator, oqmaydi",fe4b:"Himoya",fe4:"sovuq, shamol, sho'r suvdan",
+ a1b:"Mimetik peptid",a1:"lab hajmini oshiradi, elastiklik beradi",a2b:"Seramidlar",a2:"terini tiklaydi, yoriqlarni bitiradi",a3b:"Vitamin E",a3:"antioksidant, kollagen ishlab chiqarishga yordam beradi",a4b:"Portulak ekstrakti",a4:"kversetin va rutin, tabiiy himoya va namlik balansi",a5b:"Glikolipidlar",a5:"teri to'sig'ini tiklaydi va namlaydi",
+ "so.h2":"Har kuni 20+ eslatma. Odamlar sevganini baham ko'radi.","so.p":"Millionli blogerlar, top vizajistlar, stilistlar — va eng muhimi, oddiy qizlar. Biz \"kosmetika qilmaymiz\", biz sevib qolinadigan mahsulot yaratamiz.",
+ st1:"ko'rish — bitta video",st2:"ko'rish — sharh",st3:"yil aprel — brend tashkil topgan",
+ "c.h2":"Butun shahar LIPSS haqida gapiradi","c.p":"Kiyevda brendlangan metro poyezdi, Lvov markazida tramvay, Gulliver savdo markazidagi eng katta LED-ekran, kinoteatr ekranlari, ЦУМ tomidagi bloger-ivent.",
+ "co.h2":"Cheklangan launchlar — chiqishi bilan tugaydi","co.p":"Brendlar bilan hamkorlik to'plamlari, mavsumiy ranglar va special collection'lar. Kim ulgursa — o'shaniki. Yangi launch haqida birinchi bo'lib bilish uchun Telegram kanalimizga qo'shiling.","co.cta":"Telegram kanalga qo'shilish",
+ "q.h2":"Ko'p so'raladigan savollar",q1:"Bu original LIPSS'mi?",q1a:"Ha. Biz LIPSS'ning O'zbekistondagi rasmiy hamkorimiz. Har bir mahsulot brend fabrikasidan to'g'ridan-to'g'ri keladi.",
+ q2:"Qaysi rangni tanlasam bo'ladi?",q2a:"Kundalik uchun — Salted Caramel, Latte yoki Butter Croissant. Yorqinroq ko'rinish uchun — Cherry, Fig, Raspberry Gelato. Kechki chiqish uchun — Smells Like Money yoki Coffee. Ishonchingiz komil bo'lmasa, operatorimiz yordam beradi.",
+ q3:"Yopishqoqmi?",q3a:"Yo'q. Bu LIPSS'ning asosiy farqi — qalin, lekin yopishmaydigan tekstura. Sochingiz labga yopishmaydi.",
+ q4:"Yetkazib berish va to'lov",q4a:"Toshkent bo'ylab 1 kunda, viloyatlarga 2–4 kun. To'lov — qabul qilganda naqd yoki karta orqali.",
+ "o.h2":"Rangni tanlang — biz qo'ng'iroq qilamiz","o.note":"Ism va raqamingizni qoldiring. Operator 15 daqiqa ichida bog'lanib, rang va yetkazishni tasdiqlaydi.",
+ "o.promo":"🎁 145 000 so'm / dona · 3+1 aksiya","o.shade":"Rang","o.qty":"Soni","o.city":"Shahar","o.cityph":"Toshkent","o.name":"Ismingiz","o.nameph":"Madina","o.phone":"Telefon","o.total":"Jami","o.send":"Buyurtmani yuborish",
+ "o.okh":"Buyurtma qabul qilindi 💋","o.okp":"Operator 15 daqiqa ichida siz bilan bog'lanadi.",foot:"© 2026 LIPSS Uzbekistan · Rasmiy hamkor",sum:"so'm"},
+
+uzc:{"t1":"Оригинал LIPSS, расмий ҳамкор","t2":"Тўлов — қабул қилганда","t3":"Тошкент — 1 кун, вилоят — 2–4 кун","t4":"Оператор 15 дақиқада боғланади","g.h2":"Лабда қандай кўринади",meta:"LIPSS — сизнинг янги ширин десертингиз",n1:"Ранглар",n2:"Таркиб",n3:"Блогерлар",n4:"Саволлар",cta:"Буюртма бериш",
+ "h.kick":"🇺🇦 Украинанинг №1 косметика бренди · энди Ўзбекистонда","h.h1":"Your new fantasy dessert",
+ "h.p":"LIPSS — бу шунчаки лаб-блеск эмас. Бу ҳис. Кайфият. Вишня, кофе, попкорн, круассан ҳиди — ва 4–6 соат давомида ялтироқ, намланган лаблар.",
+ "h.c1":"Рангни танлаш","h.s1":"ранг ва ҳид","h.s2":"соат чидамлилик","h.s3":"эслатма кунига Instagram'да","h.s4":"кўриш — энг машҳур видео",
+ "w.h2":"Нега ҳамма LIPSS'ни хоҳлайди",w1h:"Ҳиди — егингиз келади",w1p:"Биз шунчаки ҳид қўшмаймиз — ҳис яратамиз. Вишня, латте, попкорн, круассан, тарвуз…",
+ w2h:"Текстура — wow",w2p:"Ёпишмайди, оғирлик қилмайди, плёнка қолдирмайди. Қалин, оқиб кетмайдиган, аниқ контур билан ётади.",
+ w3h:"Ранглар ҳаммага ярашади",w3p:"\"Мураккаб\" ранглар йўқ — фақат табиий гўзалликни очиб берадиганлари. Шаффофдан тўқ қизилгача.",
+ w4h:"Совға учун идеал",w4p:"Чиройли, арзон, долзарб. Дугона, сингил, ўзингиз учун — ҳар доим \"хоҳлайман\" эффекти.",
+ "s.h2":"13 та ранг. 13 та десерт.","s.p":"Картага босинг ёки устига олиб боринг — лабда қандай кўринишини кўрасиз.",
+ "f.all":"Ҳаммаси","f.clear":"Шаффоф","f.nude":"Нюд","f.pink":"Пушти","f.red":"Қизил / қорамтир","f.glit":"Ялтироқ",
+ lbl_color:"Ранг",lbl_aroma:"Ҳид",hint:"лабда кўриш",hit:"Хит",isnew:"Янги",pick:"Танлаш",soon:"Тез кунда",
+ "fo.h2":"Ҳар бир блеск — ойлаб синовдан ўтган формула","fo.p":"Битта мақсад: қайта-қайта хоҳланадиган маҳсулот яратиш.",
+ fe1b:"4–6 соат",fe1:"чидамлилик, намлик кун бўйи",fe2b:"0% ёпишқоқ",fe2:"лабда ноқулайлик йўқ",fe3b:"Аниқ контур",fe3:"қулай дозатор, оқмайди",fe4b:"Ҳимоя",fe4:"совуқ, шамол, шўр сувдан",
+ a1b:"Миметик пептид",a1:"лаб ҳажмини оширади, эластиклик беради",a2b:"Серамидлар",a2:"терини тиклайди, ёриқларни битиради",a3b:"Витамин E",a3:"антиоксидант, коллаген ишлаб чиқаришга ёрдам беради",a4b:"Портулак экстракти",a4:"кверцетин ва рутин, табиий ҳимоя ва намлик баланси",a5b:"Гликолипидлар",a5:"тери тўсиғини тиклайди ва намлайди",
+ "so.h2":"Ҳар куни 20+ эслатма. Одамлар севганини баҳам кўради.","so.p":"Миллионли блогерлар, топ визажистлар, стилистлар — ва энг муҳими, оддий қизлар. Биз \"косметика қилмаймиз\", биз севиб қолинадиган маҳсулот яратамиз.",
+ st1:"кўриш — битта видео",st2:"кўриш — шарҳ",st3:"йил апрель — бренд ташкил топган",
+ "c.h2":"Бутун шаҳар LIPSS ҳақида гапиради","c.p":"Киевда брендланган метро поезди, Львов марказида трамвай, Gulliver савдо марказидаги энг катта LED-экран, кинотеатр экранлари, ЦУМ томидаги блогер-ивент.",
+ "co.h2":"Чекланган лаунчлар — чиқиши билан тугайди","co.p":"Брендлар билан ҳамкорлик тўпламлари, мавсумий ранглар ва special collection'лар. Ким улгурса — ўшаники. Янги лаунч ҳақида биринчи бўлиб билиш учун Telegram каналимизга қўшилинг.","co.cta":"Telegram каналга қўшилиш",
+ "q.h2":"Кўп сўраладиган саволлар",q1:"Бу оригинал LIPSS'ми?",q1a:"Ҳа. Биз LIPSS'нинг Ўзбекистондаги расмий ҳамкоримиз. Ҳар бир маҳсулот бренд фабрикасидан тўғридан-тўғри келади.",
+ q2:"Қайси рангни танласам бўлади?",q2a:"Кундалик учун — Salted Caramel, Latte ёки Butter Croissant. Ёрқинроқ кўриниш учун — Cherry, Fig, Raspberry Gelato. Кечки чиқиш учун — Smells Like Money ёки Coffee. Ишончингиз комил бўлмаса, операторимиз ёрдам беради.",
+ q3:"Ёпишқоқми?",q3a:"Йўқ. Бу LIPSS'нинг асосий фарқи — қалин, лекин ёпишмайдиган текстура. Сочингиз лабга ёпишмайди.",
+ q4:"Етказиб бериш ва тўлов",q4a:"Тошкент бўйлаб 1 кунда, вилоятларга 2–4 кун. Тўлов — қабул қилганда нақд ёки карта орқали.",
+ "o.h2":"Рангни танланг — биз қўнғироқ қиламиз","o.note":"Исм ва рақамингизни қолдиринг. Оператор 15 дақиқа ичида боғланиб, ранг ва етказишни тасдиқлайди.",
+ "o.promo":"🎁 2 та олганга — 3-чисига 20% чегирма","o.shade":"Ранг","o.qty":"Сони","o.city":"Шаҳар","o.cityph":"Тошкент","o.name":"Исмингиз","o.nameph":"Мадина","o.phone":"Телефон","o.total":"Жами","o.send":"Буюртмани юбориш",
+ "o.okh":"Буюртма қабул қилинди 💋","o.okp":"Оператор 15 дақиқа ичида сиз билан боғланади.",foot:"© 2026 LIPSS Uzbekistan · Расмий ҳамкор",sum:"сўм"},
+
+ru:{"t1":"Оригинальный LIPSS, официальный партнёр","t2":"Оплата при получении","t3":"Ташкент — 1 день, регионы — 2–4 дня","t4":"Оператор свяжется за 15 минут","g.h2":"Как выглядит на губах",meta:"LIPSS — your new fantasy dessert",n1:"Оттенки",n2:"Состав",n3:"Блогеры",n4:"Вопросы",cta:"Заказать",
+ "h.kick":"🇺🇦 Косметический бренд №1 в Украине · теперь в Узбекистане","h.h1":"Your new fantasy dessert",
+ "h.p":"LIPSS — это не просто блеск для губ. Это ощущение. Состояние. Аромат вишни, кофе, попкорна, круассана — и 4–6 часов сияющих, увлажнённых губ.",
+ "h.c1":"Выбрать оттенок","h.s1":"оттенков и ароматов","h.s2":"часов стойкости","h.s3":"упоминаний в день в Instagram","h.s4":"просмотров — самое популярное видео",
+ "w.h2":"Почему все хотят LIPSS",w1h:"Ароматы, которые хочется съесть",w1p:"Мы не просто добавляем запах — мы создаём ощущение. Вишня, латте, попкорн, круассан, арбуз…",
+ w2h:"Текстура, которая wow",w2p:"Никакой липкости, тяжести или плёнки. Плотный, не растекается, ложится точно по контуру.",
+ w3h:"Оттенки, которые идут всем",w3p:"У нас нет «сложных» цветов — только те, что подчёркивают естественную красоту. От прозрачного до тёмно-красного.",
+ w4h:"Идеально на подарок",w4p:"Красиво, недорого, актуально. Подруге, сестре, себе — всегда «хочу-эффект».",
+ "s.h2":"13 оттенков. 13 десертов.","s.p":"Нажмите на карточку или наведите — увидите, как выглядит на губах.",
+ "f.all":"Все","f.clear":"Прозрачные","f.nude":"Нюд","f.pink":"Розовые","f.red":"Красные / тёмные","f.glit":"С блёстками",
+ lbl_color:"Цвет",lbl_aroma:"Аромат",hint:"на губах",hit:"Хит",isnew:"New",pick:"Выбрать",soon:"Скоро",
+ "fo.h2":"Каждый блеск — формула, в которую вложены месяцы тестов","fo.p":"Одна цель: создать продукт, который захочется снова и снова.",
+ fe1b:"4–6 часов",fe1:"стойкости, увлажнение весь день",fe2b:"0% липкости",fe2:"никаких неприятных ощущений",fe3b:"Точный контур",fe3:"удобный дозатор, не растекается",fe4b:"Защита",fe4:"от мороза, ветра, солёной воды",
+ a1b:"Миметический пептид",a1:"увеличивает объём губ, повышает упругость",a2b:"Церамиды",a2:"восстанавливают кожу, заживляют трещинки",a3b:"Витамин E",a3:"антиоксидант, способствует выработке коллагена",a4b:"Экстракт портулака",a4:"кверцетин и рутин, естественная защита и баланс влаги",a5b:"Гликолипиды",a5:"восстанавливают барьер кожи и увлажняют",
+ "so.h2":"Каждый день 20+ упоминаний. Люди делятся тем, что любят.","so.p":"Блогеры-миллионники, топовые мейкаперы, стилисты — и главное, обычные девушки. Мы не «делаем косметику», мы создаём продукт, который любят.",
+ st1:"просмотров — одно видео",st2:"просмотров — обзор",st3:"апрель — бренд основан",
+ "c.h2":"Весь город говорит о LIPSS","c.p":"Брендированный поезд метро в Киеве, трамвай в центре Львова, самый большой LED-экран ТРЦ Gulliver, экраны кинотеатров, rooftop-ивент для блогеров на крыше ЦУМа.",
+ "co.h2":"Ограниченные запуски — разлетаются сразу","co.p":"Коллаборации с брендами, сезонные оттенки и special collection. Кто успел — тот и взял. Чтобы узнавать о новых запусках первыми — подпишитесь на Telegram-канал.","co.cta":"Подписаться в Telegram",
+ "q.h2":"Частые вопросы",q1:"Это оригинальный LIPSS?",q1a:"Да. Мы официальный партнёр LIPSS в Узбекистане. Каждый продукт приходит напрямую с фабрики бренда.",
+ q2:"Какой оттенок выбрать?",q2a:"На каждый день — Salted Caramel, Latte или Butter Croissant. Поярче — Cherry, Fig, Raspberry Gelato. На вечер — Smells Like Money или Coffee. Если сомневаетесь, оператор поможет.",
+ q3:"Липкий?",q3a:"Нет. Это главное отличие LIPSS — плотная, но не липкая текстура. Волосы к губам не прилипают.",
+ q4:"Доставка и оплата",q4a:"По Ташкенту за 1 день, в регионы 2–4 дня. Оплата при получении — наличными или картой.",
+ "o.h2":"Выберите оттенок — мы перезвоним","o.note":"Оставьте имя и номер. Оператор свяжется в течение 15 минут, подтвердит оттенок и доставку.",
+ "o.promo":"🎁 Берёте 2 — на третий скидка 20%","o.shade":"Оттенок","o.qty":"Количество","o.city":"Город","o.cityph":"Ташкент","o.name":"Ваше имя","o.nameph":"Мадина","o.phone":"Телефон","o.total":"Итого","o.send":"Отправить заказ",
+ "o.okh":"Заказ принят 💋","o.okp":"Оператор свяжется с вами в течение 15 минут.",foot:"© 2026 LIPSS Uzbekistan · Официальный партнёр",sum:"сум"}
+};
+
+let lang='uz', filter='all';
+const $=s=>document.querySelector(s);
+const fmt=n=>n.toLocaleString('ru-RU').replace(/\u00a0|,/g,' ')+' '+I18N[lang].sum;
+
+function renderShades(){
+  const d=I18N[lang];
+  $('#sgrid').innerHTML=SHADES.filter(s=>filter==='all'||s.tag===filter).map(s=>`
+   <article class="s" data-id="${s.id}">
+     ${s.hit?`<span class="new" style="background:var(--cocoa)">${d.hit}</span>`:s.isNew?`<span class="new">${d.isnew}</span>`:''}
+     <div class="ph">
+       ${s.t?`<img src="${s.t}" alt="${s.name}" loading="lazy"><img class="lips" src="${s.l}" alt="" loading="lazy"><span class="hint">👀 ${d.hint}</span>`
+            :`<div style="position:absolute;inset:0;background:linear-gradient(160deg,#FFF3EE,${s.hex})"></div><span class="hint">${d.soon}</span>`}
+     </div>
+     <div class="info">
+       <h3>${s.name}</h3>
+       <div class="meta"><span><b>${d.lbl_color}:</b><i class="dot" style="background:${s.hex}"></i>${s.color[lang]}</span><span><b>${d.lbl_aroma}:</b>${s.aroma[lang]}</span></div>
+       ${s.t?`<a href="#buyurtma" class="btn" data-pick="${s.id}">${d.pick}</a>`:`<span class="btn soon" aria-disabled="true">${d.soon}</span>`}
+     </div>
+   </article>`).join('');
+  document.querySelectorAll('.s').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))return;c.classList.toggle('flip')}));
+  document.querySelectorAll('[data-pick]').forEach(a=>a.addEventListener('click',()=>{pickFromGallery(a.dataset.pick);}));
+}
+
+// ======= Buyurtma: joylar (slot) — har bir blesk uchun rang tanlanadi, sovg'a ham =======
+const MAX_PAID = 6;
+const paid = Array.from({length: NEED}, () => null); // to'lanadigan blesklar
+let gift = null;            // sovg'a blesk rangi
+let pickTarget = null;      // qaysi joy uchun rang tanlanmoqda: {kind:'paid',i} | {kind:'gift'}
+const shade = id => SHADES.find(s => s.id === id);
+const filledPaid = () => paid.filter(Boolean).length;
+const giftOpen = () => filledPaid() >= NEED;
+
+function slotHTML(kind, i){
+  const isGift = kind === 'gift';
+  const id = isGift ? gift : paid[i];
+  const s = id ? shade(id) : null;
+  const locked = isGift && !giftOpen();
+  const label = isGift ? "Sovg'a blesk" : `${i+1}-blesk`;
+  const val = s
+    ? `<i class="dot" style="background:${s.hex}"></i>${s.name}<small>${s.aroma.uz}</small>`
+    : (locked ? `Yana ${NEED - filledPaid()} ta rang tanlang, sovg'a ochiladi` : `Rangni tanlang`);
+  const price = isGift ? `<b class="free">TEKIN</b>` : fmt(PRICE);
+  const canRemove = !isGift && paid.length > 1 && (s || i >= NEED);
+  return `<div class="slot${s?' filled':''}${isGift?' gift':''}${locked?' locked':''}" data-kind="${kind}" data-i="${i}" role="button" tabindex="${locked?-1:0}" aria-label="${label}">
+    <span class="slot-n">${isGift ? '🎁' : i+1}</span>
+    <div class="slot-body"><div class="slot-label">${label}</div><div class="slot-val">${val}</div></div>
+    <div class="slot-right"><span class="slot-price">${price}</span><span class="slot-chev">${s ? "O'zgartirish" : 'Tanlash'}</span></div>
+    ${canRemove ? `<button type="button" class="slot-x" data-rm="${i}" aria-label="Olib tashlash">✕</button>` : ''}
+  </div>`;
+}
+function renderSlots(){
+  const box = $('#slots');
+  box.innerHTML = paid.map((_, i) => slotHTML('paid', i)).join('') + slotHTML('gift');
+  box.querySelectorAll('.slot').forEach(el => {
+    const open = () => { if (el.classList.contains('locked')) return; openPicker({kind: el.dataset.kind, i: +el.dataset.i}); };
+    el.addEventListener('click', e => { if (e.target.closest('.slot-x')) return; open(); });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+  box.querySelectorAll('[data-rm]').forEach(b => b.addEventListener('click', () => { paid.splice(+b.dataset.rm, 1); if (!giftOpen()) gift = null; renderSlots(); update(); }));
+  $('#addSlot').style.display = paid.length >= MAX_PAID ? 'none' : '';
+}
+function setSlot(target, id, chain){
+  if (target.kind === 'gift') gift = id; else paid[target.i] = id;
+  if (!giftOpen()) gift = null;
+  renderSlots(); update();
+  flashSlot(target);
+  if (chain) setTimeout(openNextEmpty, 260);
+}
+function flashSlot(target){
+  const el = document.querySelector(`.slot[data-kind="${target.kind}"]${target.kind==='paid'?`[data-i="${target.i}"]`:''}`);
+  if (!el) return; el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 900);
+}
+function nextEmpty(){
+  const i = paid.indexOf(null);
+  if (i !== -1) return {kind:'paid', i};
+  if (giftOpen() && !gift) return {kind:'gift'};
+  return null;
+}
+function openNextEmpty(){
+  const t = nextEmpty();
+  if (t) { openPicker(t); return; }
+  const step2 = document.querySelectorAll('.step')[1];
+  if (step2) step2.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function openPicker(target){
+  pickTarget = target;
+  const isGift = target.kind === 'gift';
+  $('#pickerTitle').textContent = isGift ? "Sovg'a blesk rangini tanlang" : `${target.i+1}-blesk rangini tanlang`;
+  $('#pickerSub').textContent = isGift ? "Bu blesk siz uchun tekin." : `Narxi ${fmt(PRICE)}. Keyin yana rang qo'shishingiz mumkin.`;
+  const cur = isGift ? gift : paid[target.i];
+  const totalSlots = paid.length + (giftOpen() || filledPaid() >= NEED - 1 ? 1 : 0);
+  const pos = isGift ? paid.length + 1 : target.i + 1;
+  $('#pickerProg').textContent = `${pos} / ${Math.max(totalSlots, pos)}`;
+  const usedBy = {}; paid.forEach((id, i) => { if (id && !(target.kind==='paid' && target.i===i)) (usedBy[id] = usedBy[id] || []).push(`${i+1}-blesk`); });
+  if (gift && target.kind !== 'gift') (usedBy[gift] = usedBy[gift] || []).push("sovg'a");
+  $('#pickerGrid').innerHTML = SHADES.map(s => {
+    const soon = !s.t;
+    return `<button type="button" class="ptile${cur===s.id?' cur':''}" data-id="${s.id}" ${soon?'disabled':''}>
+      <span class="ptile-ph">${s.t ? `<img src="${s.t}" alt="" loading="lazy">` : `<span class="ptile-fill" style="background:linear-gradient(160deg,#FFF3EE,${s.hex})"></span>`}${soon?'<em>Tez kunda</em>':''}${s.hit?'<em class="hit">Xit</em>':''}${usedBy[s.id]?`<em class="used">${usedBy[s.id].join(', ')}</em>`:''}</span>
+      <span class="ptile-name"><i class="dot" style="background:${s.hex}"></i>${s.name}</span>
+      <span class="ptile-aroma">${s.aroma.uz}</span>
+    </button>`;
+  }).join('');
+  $('#pickerGrid').querySelectorAll('.ptile:not([disabled])').forEach(b => b.addEventListener('click', () => { const t = pickTarget; closePicker(); setSlot(t, b.dataset.id, true); }));
+  $('#pickerGrid').scrollTop = 0;
+  $('#picker').hidden = false; document.body.classList.add('noscroll');
+  $('#pickerClose').focus();
+}
+function closePicker(){ $('#picker').hidden = true; document.body.classList.remove('noscroll'); pickTarget = null; }
+$('#pickerClose').addEventListener('click', closePicker);
+$('#picker').addEventListener('click', e => { if (e.target === e.currentTarget) closePicker(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#picker').hidden) closePicker(); });
+$('#addSlot').addEventListener('click', () => { if (paid.length < MAX_PAID) { paid.push(null); renderSlots(); update(); openPicker({kind:'paid', i: paid.length-1}); } });
+
+// Galereyadagi "Tanlash": bo'sh joyga qo'yadi
+function pickFromGallery(id){
+  let i = paid.indexOf(null);
+  if (i === -1 && giftOpen() && !gift) { gift = id; renderSlots(); update(); return; }
+  if (i === -1 && paid.length < MAX_PAID) { paid.push(null); i = paid.length - 1; }
+  if (i === -1) return;
+  paid[i] = id; if (!giftOpen()) gift = null; renderSlots(); update();
+}
+
+function update(){
+  const n = filledPaid();
+  const bonus = bonusFor(n);
+  const sum = n * PRICE;
+  $('#total').textContent = fmt(sum);
+  const sm = $('#summary');
+  const rows = [];
+  if (n) rows.push(`<div><span>${n} ta blesk × ${fmt(PRICE)}</span><b>${fmt(sum)}</b></div>`);
+  if (bonus.n) rows.push(`<div class="gift-row"><span>Sovg'a blesk${gift ? ` — ${shade(gift).name}` : ''}</span><b class="free">+1 TEKIN</b></div>`);
+  if (n && n < NEED) rows.push(`<div class="hint-row">Yana ${NEED - n} ta rang tanlasangiz, 1 ta blesk <b class="free">TEKIN</b> bo'ladi.</div>`);
+  if (bonus.n && !gift) rows.push(`<div class="hint-row">Sovg'a bleskning rangini yuqorida tanlang.</div>`);
+  sm.innerHTML = rows.join('');
+  sm.classList.toggle('on', rows.length > 0);
+}
+
+// Telefon: +998 XX XXX XX XX ko'rinishida yoziladi
+function fmtPhone(v){
+  let rest = v.trim().startsWith('+998') ? v.trim().slice(4) : v;
+  let d = rest.replace(/\D/g, '');
+  if (d.length > 9 && d.startsWith('998')) d = d.slice(3);
+  d = d.slice(0, 9);
+  const p = [d.slice(0,2), d.slice(2,5), d.slice(5,7), d.slice(7,9)].filter(Boolean);
+  return '+998' + (p.length ? ' ' + p.join(' ') : ' ');
+}
+$('#phone').addEventListener('focus', e => { if (!e.target.value) e.target.value = '+998 '; });
+$('#phone').addEventListener('input', e => { e.target.value = fmtPhone(e.target.value); e.target.style.borderColor = ''; });
+$('#name').addEventListener('input', e => { e.target.style.borderColor = ''; });
+$('#phone').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('#submitBtn').click(); } });
+$('#name').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('#phone').focus(); } });
+
+function showErr(msg){ const el = $('#formErr'); el.textContent = msg; el.classList.add('on'); }
+function clearErr(){ $('#formErr').classList.remove('on'); }
+
+function orderText(data){
+  return [`🛍 LIPSS buyurtma (${SITE_TAG})`, `👤 ${data.name}`, `📞 ${data.phone}`, '',
+    ...data.items.map((x, i) => `${i+1}. ${x.name}`), data.gift ? `🎁 Sovg'a: ${data.gift.name}` : '', '',
+    `💰 Jami: ${data.total}`, `🕒 ${new Date().toLocaleString('ru-RU')}`].join('\n');
+}
+async function sendOrder(data){
+  const text = orderText(data), jobs = [];
+  if (TG_BOT_TOKEN && TG_CHAT_ID) jobs.push(fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({chat_id: TG_CHAT_ID, text})}).then(r => { if (!r.ok) throw new Error('telegram'); }));
+  if (BITRIX_WEBHOOK) jobs.push(fetch(BITRIX_WEBHOOK.replace(/\/?$/, '/') + 'crm.lead.add.json', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({fields:{TITLE:`LIPSS ${SITE_TAG} — ${data.name}`, NAME:data.name, PHONE:[{VALUE:data.phone, VALUE_TYPE:'WORK'}], COMMENTS:text, SOURCE_ID:'WEB'}})}).then(r => { if (!r.ok) throw new Error('bitrix'); }));
+  if (!jobs.length) { console.warn("DIQQAT: buyurtma hech qayerga yuborilmadi. Skript boshidagi TG_BOT_TOKEN/TG_CHAT_ID yoki BITRIX_WEBHOOK ni to'ldiring.", data); return true; }
+  const res = await Promise.allSettled(jobs);
+  return res.some(r => r.status === 'fulfilled');
+}
+let sending = false;
+$('#submitBtn').addEventListener('click', async () => {
+  if (sending) return;
+  clearErr();
+  const name = $('#name'), phone = $('#phone');
+  if (!filledPaid()) { showErr('Avval kamida 1 ta blesk rangini tanlang.'); $('#slots').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  if (giftOpen() && !gift) { showErr("Sovg'a blesk rangini ham tanlang."); $('#slots').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  if (!name.value.trim()) { showErr('Ismingizni yozing.'); name.focus(); name.style.borderColor = 'var(--cherry)'; return; }
+  if (phone.value.replace(/\D/g,'').length < 12) { showErr("Telefon raqamini to'liq yozing: +998 XX XXX XX XX"); phone.focus(); phone.style.borderColor = 'var(--cherry)'; return; }
+  const bonus = bonusFor(filledPaid());
+  const data = {
+    items: paid.filter(Boolean).map(id => ({id, name: shade(id).name})),
+    gift: gift ? {id: gift, name: shade(gift).name} : null,
+    bonus: bonus.n, name: name.value.trim(), phone: phone.value.trim(), total: $('#total').textContent
+  };
+  if (document.querySelector('.hp').value) return; // spam-bot
+  const btn = $('#submitBtn'); sending = true; btn.disabled = true; const label = btn.textContent; btn.textContent = 'Yuborilmoqda…';
+  let ok = false; try { ok = await sendOrder(data); } catch (e) { ok = false; }
+  sending = false; btn.disabled = false; btn.textContent = label;
+  if (!ok) { showErr("Yuborishda xatolik bo'ldi. Iltimos, qayta urinib ko'ring yoki qo'ng'iroq qiling: +998 00 000 00 00"); return; }
+  $('#okList').innerHTML = data.items.map(x => `<li><i class="dot" style="background:${shade(x.id).hex}"></i>${x.name}</li>`).join('') + (data.gift ? `<li class="gift"><i class="dot" style="background:${shade(data.gift.id).hex}"></i>${data.gift.name} <b class="free">sovg'a</b></li>` : '');
+  $('#okTotal').textContent = data.total;
+  $('#orderForm').classList.add('sent');
+  $('#orderForm').scrollIntoView({behavior:'smooth', block:'center'});
+});
+$('#againBtn').addEventListener('click', () => {
+  paid.length = 0; for (let i = 0; i < NEED; i++) paid.push(null); gift = null;
+  $('#name').value = ''; $('#phone').value = ''; clearErr();
+  $('#orderForm').classList.remove('sent'); renderSlots(); update();
+  $('#orderForm').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+document.documentElement.lang = 'uz';
+const mq0 = SHADES.map(s => s.name); $('#mq').innerHTML = [...mq0, ...mq0].map(s => `<span>${s}</span>`).join('');
+renderShades(); renderSlots(); update();
+const navEl = document.querySelector('.nav');
+const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 8);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+if ('IntersectionObserver' in window) { new IntersectionObserver(es => { document.querySelector('.mob-cta').classList.toggle('hide', es[0].isIntersecting) }, {threshold:.15}).observe($('#buyurtma')); }
+</script>
+</body>
+</html>
