@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23C4112F%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%23fff%27 font-family=%27Arial%27 font-weight=%27700%27%3EL%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/01.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap"></noscript>
 <style>
 :root{
   --paper:#FFFFFF;
@@ -54,7 +54,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .strip b{font-weight:700}
 .strip .s-long{display:none}
 @media(min-width:700px){.strip .s-short{display:none}.strip .s-long{display:inline}}
-.head{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
 .head .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
 .logo{font-weight:800;font-size:22px;letter-spacing:.12em;color:var(--cherry)}
 .logo small{display:block;font-size:10.5px;font-weight:600;letter-spacing:0;color:var(--muted);margin-top:-2px}
@@ -169,8 +169,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .reels::-webkit-scrollbar{display:none}
 .reel{position:relative;flex:0 0 58%;max-width:250px;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#1d1013;scroll-snap-align:start;cursor:pointer}
 .reel video{width:100%;height:100%;object-fit:cover;display:block}
-.reel .snd{position:absolute;right:10px;bottom:10px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.45);color:#fff}
-.reel .snd svg{width:18px;height:18px}
+.reel .snd{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.5);color:#fff;transition:opacity .2s}
+.reel .snd svg{width:26px;height:26px}
+.reel.playing .snd{opacity:0}
 @media(min-width:700px){.reels{margin:0 -24px;padding:0 24px 6px;scroll-padding-inline:24px}.reel{flex-basis:220px}}
 @media(min-width:1170px){.reels{margin:0;padding:0 0 6px;scroll-padding-inline:0}}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px;text-align:center}
@@ -273,7 +274,7 @@ footer p{line-height:1.5}
 @media(min-width:800px){footer .wrap{grid-template-columns:1fr auto;align-items:center}footer .right{text-align:right}}
 
 /* Mobile bottom bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);transition:transform .25s}
 .bar.hide{transform:translateY(110%)}
 .bar .btn{flex:1;min-height:52px}
 .bar .call{flex:none;width:56px;padding:0;background:var(--ok)}
@@ -379,14 +380,14 @@ footer p{line-height:1.5}
 
 <section class="sec" id="video">
   <div class="wrap">
-    <div class="sec-h"><h2>Blogerlar LIPS haqida</h2><p>Ukrainada eng ko'p muhokama qilinadigan blesk. Videoni bosing — ovoz yoqiladi.</p></div>
+    <div class="sec-h"><h2>Blogerlar LIPS haqida</h2><p>Ukrainada eng ko'p muhokama qilinadigan blesk. Videoni bosing — ovozi bilan o'ynaydi.</p></div>
     <div class="reels" id="reels">
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v1.jpg" src="reels/v1.mp4" aria-label="LIPS video 1"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v2.jpg" src="reels/v2.mp4" aria-label="LIPS video 2"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v3.jpg" src="reels/v3.mp4" aria-label="LIPS video 3"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v4.jpg" src="reels/v4.mp4" aria-label="LIPS video 4"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v5.jpg" src="reels/v5.mp4" aria-label="LIPS video 5"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
-      <div class="reel"><video preload="none" muted loop playsinline poster="reels/v6.jpg" src="reels/v6.mp4" aria-label="LIPS video 6"></video><button type="button" class="snd" aria-label="Ovozni yoqish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v1.jpg" src="reels/v1.mp4" aria-label="LIPS video 1"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v2.jpg" src="reels/v2.mp4" aria-label="LIPS video 2"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v3.jpg" src="reels/v3.mp4" aria-label="LIPS video 3"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v4.jpg" src="reels/v4.mp4" aria-label="LIPS video 4"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v5.jpg" src="reels/v5.mp4" aria-label="LIPS video 5"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
+      <div class="reel"><video preload="none" loop playsinline poster="reels/v6.jpg" src="reels/v6.mp4" aria-label="LIPS video 6"></video><button type="button" class="snd" aria-label="Videoni ko'rish"></button></div>
     </div>
     <div class="nums">
       <div><b>1,9 mln</b><span>ko'rish — bitta videoda</span></div>
@@ -536,8 +537,8 @@ function renderShades(){
   $('#shades').innerHTML = SHADES.map(s => `
     <article class="shade" data-id="${s.id}">
       <div class="ph">
-        ${s.l ? `<img src="${s.l}" alt="${s.name} — labda" loading="lazy">` : swatchHTML(s)}
-        ${s.t ? `<span class="inset"><img src="${s.t}" alt="${s.name} — tyubik" loading="lazy"></span>` : ''}
+        ${s.l ? `<img src="${s.l}" alt="${s.name} — labda" loading="lazy" decoding="async">` : swatchHTML(s)}
+        ${s.t ? `<span class="inset"><img src="${s.t}" alt="${s.name} — tyubik" loading="lazy" decoding="async"></span>` : ''}
         ${s.hit ? '<span class="tag">Xit</span>' : s.isNew ? '<span class="tag new">Yangi</span>' : ''}
         <span class="cnt" hidden></span>
       </div>
@@ -574,7 +575,7 @@ function fixGift(){
 function renderPicks(){
   $('#picks').innerHTML = SHADES.map(s => `
     <div class="pick" data-id="${s.id}">
-      <button type="button" class="ph" data-plus="${s.id}" aria-label="${s.name} qo'shish">${s.t ? `<img src="${s.t}" alt="" loading="lazy">` : swatchHTML(s)}</button>
+      <button type="button" class="ph" data-plus="${s.id}" aria-label="${s.name} qo'shish">${s.t ? `<img src="${s.t}" alt="" loading="lazy" decoding="async">` : swatchHTML(s)}</button>
       <span class="nm">${s.name}</span>
       <div class="qty">
         <button type="button" data-minus="${s.id}" aria-label="${s.name} kamaytirish">−</button>
@@ -730,29 +731,35 @@ $('#again').addEventListener('click', () => {
   $('#orderForm').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
-// ======= Videolar: ko'ringanda o'ynaydi, bosilganda ovoz =======
+// ======= Videolar: bosilganda ovozi bilan o'ynaydi, bir vaqtda faqat bittasi =======
+// (Avtomatik o'ynatilmaydi — sahifa tez ochilishi uchun video faqat bosilganda yuklanadi)
 (function(){
   const icon = {
-    off:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>',
-    on:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>'
+    play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>',
+    pause:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>'
   };
   const reels = [...document.querySelectorAll('.reel')];
-  const sync = c => { const v = c.querySelector('video'), b = c.querySelector('.snd'); b.innerHTML = v.muted ? icon.off : icon.on; b.setAttribute('aria-label', v.muted ? 'Ovozni yoqish' : "Ovozni o'chirish"); };
+  const sync = c => {
+    const v = c.querySelector('video'), b = c.querySelector('.snd'), on = !v.paused;
+    b.innerHTML = on ? icon.pause : icon.play;
+    b.setAttribute('aria-label', on ? "To'xtatish" : "Videoni ko'rish");
+    c.classList.toggle('playing', on);
+  };
   reels.forEach(c => {
-    const v = c.querySelector('video'); sync(c);
+    const v = c.querySelector('video');
+    v.addEventListener('play', () => sync(c));
+    v.addEventListener('pause', () => sync(c));
+    sync(c);
     c.addEventListener('click', () => {
-      v.muted = !v.muted;
-      if (!v.muted) reels.forEach(o => { if (o !== c) { o.querySelector('video').muted = true; sync(o); } });
-      v.play().catch(() => {}); sync(c);
+      if (v.paused) {
+        reels.forEach(o => { if (o !== c) o.querySelector('video').pause(); });
+        v.muted = false;
+        v.play().catch(() => { v.muted = true; v.play().catch(() => {}); });
+      } else v.pause();
     });
   });
-  const still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(es => es.forEach(en => {
-      const v = en.target.querySelector('video');
-      if (en.isIntersecting) { if (!still) v.play().catch(() => {}); }
-      else { v.pause(); if (!v.muted) { v.muted = true; sync(en.target); } }
-    }), {threshold: .5});
+    const io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) en.target.querySelector('video').pause(); }), {threshold: .2});
     reels.forEach(c => io.observe(c));
   }
 })();

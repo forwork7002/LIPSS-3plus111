@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23C4112F%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%23fff%27 font-family=%27Arial%27 font-weight=%27700%27%3EL%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/01.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap"></noscript>
 <style>
 /* Bitta tor ustun — telefon ekranidek. Kompyuterda ham o'rtada turadi. */
 :root{
@@ -255,12 +255,12 @@ footer a{color:#fff;font-weight:700}
   <h2>Blogerlar LIPS haqida</h2>
   <p class="sub">Instagram'dagi storislar.</p>
   <div class="stories">
-    <img src="img/14.webp" alt="Bloger storisi: @valerakomarova" loading="lazy">
-    <img src="img/15.webp" alt="Bloger storisi: @kvittkova" loading="lazy">
-    <img src="img/16.webp" alt="Bloger storisi: @saba.musina" loading="lazy">
-    <img src="img/17.webp" alt="Bloger storisi: @dashatm19" loading="lazy">
-    <img src="img/18.webp" alt="Bloger storisi: @tanyaparfileva" loading="lazy">
-    <img src="img/19.webp" alt="Bloger storisi: @alina_frendiy" loading="lazy">
+    <img src="img/14.webp" alt="Bloger storisi: @valerakomarova" loading="lazy" decoding="async">
+    <img src="img/15.webp" alt="Bloger storisi: @kvittkova" loading="lazy" decoding="async">
+    <img src="img/16.webp" alt="Bloger storisi: @saba.musina" loading="lazy" decoding="async">
+    <img src="img/17.webp" alt="Bloger storisi: @dashatm19" loading="lazy" decoding="async">
+    <img src="img/18.webp" alt="Bloger storisi: @tanyaparfileva" loading="lazy" decoding="async">
+    <img src="img/19.webp" alt="Bloger storisi: @alina_frendiy" loading="lazy" decoding="async">
   </div>
   <div class="nums">
     <div><b>1,9 mln</b><span>ko'rish — bitta videoda</span></div>
@@ -377,7 +377,7 @@ const shade = id => SHADES.find(s => s.id === id);
 // Ranglar
 $('#shades').innerHTML = SHADES.map(s => `
   <div class="shade">
-    <div class="ph">${s.img ? `<img src="${s.img}" alt="${s.name} labda" loading="lazy">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</div>
+    <div class="ph">${s.img ? `<img src="${s.img}" alt="${s.name} labda" loading="lazy" decoding="async">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</div>
     <b><i class="dot" style="background:${s.hex}"></i>${s.name}</b>
     <span>hidi: ${s.aroma}</span>
   </div>`).join('');
@@ -398,7 +398,7 @@ function fixGift(){
 
 $('#picks').innerHTML = SHADES.map(s => `
   <div class="pick" data-id="${s.id}">
-    <button type="button" class="ph" data-plus="${s.id}" aria-label="${s.name} qo'shish">${s.img ? `<img src="${s.img}" alt="" loading="lazy">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</button>
+    <button type="button" class="ph" data-plus="${s.id}" aria-label="${s.name} qo'shish">${s.img ? `<img src="${s.img}" alt="" loading="lazy" decoding="async">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</button>
     <span class="nm"><i class="dot" style="background:${s.hex}"></i>${s.name}</span>
     <div class="qty">
       <button type="button" data-minus="${s.id}" aria-label="${s.name} kamaytirish">−</button>
