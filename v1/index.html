@@ -418,12 +418,12 @@ footer p{line-height:1.5}
           <div><b id="promoTitle">2 ta oling, 3-chisi sovg'a</b><span id="promoSub">Har biri 145 000 so'm. Sovg'a blesk rangini ham o'zingiz tanlaysiz.</span></div>
         </div>
 
-        <div class="fstep">1. Ranglarni tanlang<small>Bitta rangdan bir nechta olish ham mumkin</small></div>
+        <div class="fstep">1. Rang va sonini tanlang<small>Istalgancha: bitta rangdan bir nechta ham olsa bo'ladi</small></div>
         <div class="picks" id="picks"></div>
 
         <div class="lockhint" id="lockHint" hidden></div>
         <div class="giftbox" id="giftBox" hidden>
-          <div class="fstep">Sovg'a blesk rangini tanlang</div>
+          <div class="fstep">Sovg'ani tanlang<small>Tanlaganlaringizdan qaysi biri bepul bo'lsin?</small></div>
           <div class="chips" id="giftChips"></div>
         </div>
 
@@ -490,7 +490,8 @@ footer p{line-height:1.5}
 const PRICE = 145000;    // bitta blesk narxi, so'm
 const NEED = 3;          // aksiya: shuncha ta olsa — 1 tasi sovg'a (2 → "2+1", 3 → "3+1")
 const SITE_TAG = NEED + '+1'; // Bitrix'dagi buyurtmada ko'rinadi
-const MAX_QTY = 6;       // bitta buyurtmada eng ko'p to'lanadigan blesk soni
+const GIFT_FROM = NEED + 1; // shuncha va undan ko'p blesk tanlansa — bittasi sovg'a
+const MAX_QTY = 99;      // bitta buyurtmada eng ko'p blesk (amalda cheklovsiz)
 const OFFER_PICS = ['img/24.webp', 'img/30.webp', 'img/27.webp', 'img/36.webp']; // aksiya kartasidagi tyubik rasmlari
 
 const SHADES = [
@@ -527,6 +528,7 @@ const swatchHTML = (s, label) => `<span class="swatch" style="--sw:${s.hex}">${l
   $('#offerOld').textContent = fmt(total * PRICE);
   $('#offerNew').textContent = fmt(NEED * PRICE);
   $('#offerSave').textContent = '−' + Math.round(100 / total) + '%';
+  $('#promoSub').textContent = `Har biri ${fmt(PRICE)}. ${GIFT_FROM} ta va undan ko'p tanlasangiz, bittasi sovg'a.`;
 })();
 
 // ======= Ranglar galereyasi =======
@@ -547,20 +549,27 @@ function renderShades(){
     </article>`).join('');
   $('#shades').querySelectorAll('[data-add]').forEach(b => b.addEventListener('click', () => {
     const id = b.dataset.add;
-    if (paidTotal() >= MAX_QTY) { toast(`Bitta buyurtmada ${MAX_QTY} tagacha blesk`); return; }
+    if (count() >= MAX_QTY) { toast(`Bitta buyurtmada ${MAX_QTY} tagacha blesk`); return; }
     qty[id]++;
     refresh();
-    toast(giftOpen() && !gift
-      ? `${shade(id).name} qo'shildi. Endi sovg'a rangini tanlang`
-      : `${shade(id).name} qo'shildi. Jami: ${paidTotal()} ta`);
+    toast(hasGift() && !gift
+      ? `${shade(id).name} qo'shildi. Endi sovg'ani tanlang`
+      : `${shade(id).name} qo'shildi. Jami: ${count()} ta`);
   }));
 }
 
 // ======= Buyurtma holati =======
 const qty = Object.fromEntries(SHADES.map(s => [s.id, 0]));
-let gift = null;
-const paidTotal = () => Object.values(qty).reduce((a, b) => a + b, 0);
-const giftOpen = () => paidTotal() >= NEED;
+let gift = null;                       // sovg'a — tanlangan ranglardan biri
+const count = () => Object.values(qty).reduce((a, b) => a + b, 0);
+const hasGift = () => count() >= GIFT_FROM;              // GIFT_FROM va undan ko'p — bittasi sovg'a
+const payCount = () => hasGift() ? count() - 1 : count(); // to'lanadigan soni
+const chosen = () => SHADES.filter(s => qty[s.id] > 0);
+function fixGift(){
+  if (!hasGift() || (gift && !qty[gift])) gift = null;
+  const c = chosen();
+  if (hasGift() && !gift && c.length === 1) gift = c[0].id; // bitta rang bo'lsa — o'zi tanlanadi
+}
 
 function renderPicks(){
   $('#picks').innerHTML = SHADES.map(s => `
@@ -576,13 +585,12 @@ function renderPicks(){
   $('#picks').addEventListener('click', e => {
     const p = e.target.closest('[data-plus]'), m = e.target.closest('[data-minus]');
     if (p) {
-      if (paidTotal() >= MAX_QTY) { showErr(`Bitta buyurtmada ${MAX_QTY} tagacha blesk. Ko'proq kerak bo'lsa, operatorga ayting.`); return; }
+      if (count() >= MAX_QTY) { showErr(`Bitta buyurtmada ${MAX_QTY} tagacha blesk. Ko'proq kerak bo'lsa, operatorga ayting.`); return; }
       qty[p.dataset.plus]++; clearErr(); refresh(p.dataset.plus);
     } else if (m && qty[m.dataset.minus] > 0) {
       qty[m.dataset.minus]--; refresh(m.dataset.minus);
     }
   });
-  $('#giftChips').innerHTML = SHADES.map(s => `<button type="button" class="chip" data-gift="${s.id}"><i class="dot" style="background:${s.hex}"></i>${s.name}</button>`).join('');
   $('#giftChips').addEventListener('click', e => {
     const c = e.target.closest('[data-gift]'); if (!c) return;
     gift = c.dataset.gift; clearErr(); refresh();
@@ -590,8 +598,8 @@ function renderPicks(){
 }
 
 function refresh(bumpId){
-  const n = paidTotal();
-  if (!giftOpen()) gift = null;
+  fixGift();
+  const n = count();
 
   // forma: plitkalar
   document.querySelectorAll('.pick').forEach(el => {
@@ -607,24 +615,25 @@ function refresh(bumpId){
     c.hidden = q === 0; c.textContent = `Tanlandi: ${q}`;
     el.querySelector('[data-add]').textContent = q ? 'Yana bitta' : 'Tanlash';
   });
-  // sovg'a
-  $('#giftBox').hidden = !giftOpen();
-  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.dataset.gift === gift));
+  // sovg'a: faqat tanlangan ranglar orasidan
+  $('#giftBox').hidden = !hasGift();
+  $('#giftChips').innerHTML = chosen().map(s => `<button type="button" class="chip${s.id === gift ? ' on' : ''}" data-gift="${s.id}" aria-pressed="${s.id === gift}"><i class="dot" style="background:${s.hex}"></i>${s.name}</button>`).join('');
   const hint = $('#lockHint');
-  if (n > 0 && n < NEED) { hint.hidden = false; hint.innerHTML = `Yana ${NEED - n} ta rang tanlasangiz, 1 ta blesk <b>sovg'a</b> bo'ladi`; }
-  else hint.hidden = true;
+  if (n < GIFT_FROM) {
+    hint.hidden = false;
+    hint.innerHTML = n ? `Yana ${GIFT_FROM - n} ta tanlasangiz, bittasi <b>sovg'a</b> bo'ladi` : `${GIFT_FROM} ta va undan ko'p tanlasangiz, bittasi <b>sovg'a</b> bo'ladi`;
+  } else hint.hidden = true;
 
   // hisob
   const rows = [];
   if (n) {
-    rows.push(`<div><span>${n} ta blesk × ${fmt(PRICE)}</span><b>${fmt(n * PRICE)}</b></div>`);
-    if (giftOpen()) rows.push(`<div><span>Sovg'a blesk${gift ? ' — ' + shade(gift).name : ''}</span><b class="free">bepul</b></div>`);
+    rows.push(`<div><span>${payCount()} ta × ${fmt(PRICE)}</span><b>${fmt(payCount() * PRICE)}</b></div>`);
+    if (hasGift()) rows.push(`<div><span>+ 1 ta sovg'a${gift ? ' — ' + shade(gift).name : ''}</span><b class="free">bepul</b></div>`);
   }
-  rows.push(`<div class="total"><span>Jami</span><b id="total">${fmt(n * PRICE)}</b></div>`);
+  rows.push(`<div class="total"><span>Jami${n ? ` (${n} ta blesk)` : ''}</span><b id="total">${fmt(payCount() * PRICE)}</b></div>`);
   $('#sum').innerHTML = rows.join('');
 
-  const items = n + (giftOpen() ? 1 : 0);
-  $('#barBtn').textContent = n ? `Buyurtma berish (${items} ta)` : 'Buyurtma berish';
+  $('#barBtn').textContent = n ? `Buyurtma berish (${n} ta)` : 'Buyurtma berish';
 }
 
 // ======= Toast =======
@@ -678,23 +687,24 @@ let sending = false;
 $('#send').addEventListener('click', async () => {
   if (sending) return;
   clearErr();
-  const n = paidTotal();
-  if (!n) { showErr('Kamida 1 ta rang tanlang — rasm ostidagi «+» tugmasini bosing.'); $('#picks').scrollIntoView({behavior:'smooth', block:'center'}); return; }
-  if (giftOpen() && !gift) { showErr("Sovg'a blesk rangini tanlang."); $('#giftBox').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  const n = count();
+  if (!n) { showErr('Kamida 1 ta blesk tanlang — rasm ostidagi «+» tugmasini bosing.'); $('#picks').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  if (hasGift() && !gift) { showErr("Sovg'ani tanlang: qaysi blesk bepul bo'lsin?"); $('#giftBox').scrollIntoView({behavior:'smooth', block:'center'}); return; }
   if (!nameEl.value.trim()) { showErr('Ismingizni yozing.'); nameEl.classList.add('bad'); nameEl.focus(); return; }
   if (phoneEl.value.replace(/\D/g, '').length < 12) { showErr("Telefon raqamini to'liq yozing: +998 XX XXX XX XX"); phoneEl.classList.add('bad'); phoneEl.focus(); return; }
   if ($('.hp').value) return; // spam-bot
 
-  const items = [];
-  SHADES.forEach(s => { for (let i = 0; i < qty[s.id]; i++) items.push({id: s.id, name: s.name}); });
+  // Bitrix uchun: to'lanadigan blesklar rang bo'yicha + alohida sovg'a
+  const paidOf = s => qty[s.id] - (s.id === gift ? 1 : 0);
+  const items = chosen().filter(s => paidOf(s) > 0).map(s => ({id: s.id, name: `${s.name} — ${paidOf(s)} ta`}));
   const data = {
     items,
-    gift: gift ? {id: gift, name: shade(gift).name} : null,
-    bonus: giftOpen() ? 1 : 0,
+    gift: gift ? {id: gift, name: `${shade(gift).name} — 1 ta`} : null,
+    bonus: hasGift() ? 1 : 0,
     name: nameEl.value.trim(),
     phone: phoneEl.value.trim(),
-    total: fmt(n * PRICE),
-    sum: n * PRICE
+    total: fmt(payCount() * PRICE),
+    sum: payCount() * PRICE
   };
 
   const btn = $('#send'); sending = true; btn.disabled = true; btn.textContent = 'Yuborilmoqda…';
@@ -703,7 +713,7 @@ $('#send').addEventListener('click', async () => {
   sending = false; btn.disabled = false; btn.textContent = 'Buyurtma berish';
   if (!ok) { showErr("Buyurtma yuborilmadi — internetni tekshirib, qayta bosing. Yoki qo'ng'iroq qiling: +998 90 500 46 56"); return; }
 
-  const lines = SHADES.filter(s => qty[s.id]).map(s => `<li><i class="dot" style="background:${s.hex}"></i>${s.name}<em style="color:var(--ink)">${qty[s.id]} ta</em></li>`);
+  const lines = chosen().filter(s => paidOf(s) > 0).map(s => `<li><i class="dot" style="background:${s.hex}"></i>${s.name}<em style="color:var(--ink)">${paidOf(s)} ta</em></li>`);
   if (data.gift) lines.push(`<li><i class="dot" style="background:${shade(gift).hex}"></i>${data.gift.name}<em>sovg'a</em></li>`);
   $('#okList').innerHTML = lines.join('');
   $('#okTotal').textContent = data.total;

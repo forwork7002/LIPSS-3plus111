@@ -88,7 +88,7 @@ h2 + .sub{margin-top:-10px;margin-bottom:16px;color:var(--muted);font-size:15px}
 .shades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .shade .ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--blush)}
 .shade .ph img{width:100%;height:100%;object-fit:cover}
-.shade .sw{position:absolute;inset:0;background:radial-gradient(110% 80% at 28% 18%,rgba(255,255,255,.95),rgba(255,255,255,0) 46%),linear-gradient(165deg,#FFF7F4 0%,var(--sw) 85%)}
+.shade .sw,.pick .sw{position:absolute;inset:0;background:radial-gradient(110% 80% at 28% 18%,rgba(255,255,255,.95),rgba(255,255,255,0) 46%),linear-gradient(165deg,#FFF7F4 0%,var(--sw) 85%)}
 .shade b{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;font-weight:700;line-height:1.2}
 .shade span{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
 .dot{display:inline-block;flex:none;width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(42,23,27,.2)}
@@ -126,32 +126,37 @@ h2 + .sub{margin-top:-10px;margin-bottom:16px;color:var(--muted);font-size:15px}
 .lbl{display:block;font-weight:700;font-size:15.5px;margin:18px 0 8px}
 .lbl:first-child{margin-top:0}
 .lbl small{font-weight:500;color:var(--muted);font-size:13.5px}
-.pkgs{display:grid;gap:10px}
-.pkg{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border:2px solid var(--line);border-radius:14px;cursor:pointer;transition:border-color .15s,background .15s}
-.pkg input{position:absolute;opacity:0;pointer-events:none}
-.pkg .radio{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #CDBABD;display:grid;place-items:center}
-.pkg .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--cherry);transform:scale(0);transition:transform .15s}
-.pkg .t{flex:1;min-width:0}
-.pkg .t b{display:block;font-size:16px}
-.pkg .t span{display:block;font-size:13.5px;color:var(--muted)}
-.pkg .p{text-align:right;white-space:nowrap}
-.pkg .p b{display:block;font-size:17px;font-weight:800}
-.pkg .p s{font-size:13px;color:var(--muted)}
-.pkg .badge{position:absolute;top:-10px;right:12px;background:var(--ok);color:#fff;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px}
-.pkg.on{border-color:var(--cherry);background:#FFF8F7}
-.pkg.on .radio{border-color:var(--cherry)}
-.pkg.on .radio::after{transform:scale(1)}
-.pkg:focus-within{outline:3px solid rgba(196,17,47,.35);outline-offset:2px}
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pick{min-width:0;border:2px solid var(--line);border-radius:14px;padding:6px 6px 8px;text-align:center;background:#fff;transition:border-color .15s,background .15s}
+.pick.on{border-color:var(--cherry);background:#FFF8F7}
+.pick .ph{position:relative;display:block;width:100%;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--blush)}
+.pick .ph img{width:100%;height:100%;object-fit:cover}
+.pick .nm{display:flex;align-items:center;justify-content:center;gap:5px;font-weight:700;font-size:13px;line-height:1.2;margin-top:6px;min-height:2.4em}
+.qty{display:flex;align-items:center;justify-content:space-between;margin-top:6px;background:var(--blush);border-radius:10px;padding:3px}
+.qty button{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-size:21px;font-weight:700;line-height:1;color:var(--ink)}
+.qty .plus{background:#fff}
+.pick.on .qty .plus{background:var(--cherry);color:#fff}
+.qty button[disabled]{opacity:.3;cursor:default}
+.qty output{font-weight:800;font-size:16px;min-width:22px}
+.bump{animation:bump .3s ease}
+@keyframes bump{50%{transform:scale(1.05)}}
+.note{margin-top:12px;border-radius:12px;padding:10px 12px;font-size:14.5px;font-weight:600;text-align:center;background:var(--blush)}
+.note b{color:var(--cherry)}
+.giftbox{margin-top:14px;border:2px dashed var(--cherry);border-radius:14px;padding:14px;background:#FFF8F7}
+.giftbox .lbl{margin-top:0}
+.rows{margin-top:16px;font-size:15px}
+.rows div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;color:var(--muted)}
+.rows div b{color:var(--ink);white-space:nowrap}
+.rows .free{color:var(--ok)}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:600;font-size:14px}
 .chip[aria-pressed="true"]{border-color:var(--cherry);background:var(--cherry);color:#fff}
 .chip[aria-pressed="true"] .dot{box-shadow:0 0 0 2px #fff}
-.chipnote{margin-top:8px;font-size:13.5px;color:var(--muted)}
 .field input{width:100%;height:56px;padding:0 16px;border-radius:12px;border:1.5px solid #E0CFD1;background:#fff;font:inherit;font-size:18px;color:var(--ink)}
 .field input::placeholder{color:#B5A5A9}
 .field input:focus{outline:none;border-color:var(--cherry);box-shadow:0 0 0 4px rgba(196,17,47,.12)}
 .field input.bad{border-color:var(--cherry)}
-.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-weight:700}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding-top:14px;border-top:1px dashed var(--line);font-weight:700}
 .total b{font-size:26px;font-weight:800}
 .total small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
 .err{display:none;margin-top:12px;background:#FFF1EF;color:var(--cherry-dk);border:1.5px solid rgba(196,17,47,.3);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:600}
@@ -267,8 +272,8 @@ footer a{color:#fff;font-weight:700}
 <section><div class="in">
   <h2>Qanday buyurtma beriladi</h2>
   <ol class="steps">
-    <li><b>Ism va telefon qoldirasiz</b><span>Saytda hech narsa to'lamaysiz.</span></li>
-    <li><b>Operator qo'ng'iroq qiladi</b><span>15 daqiqa ichida rang va manzilni aniqlaydi.</span></li>
+    <li><b>Ranglarni tanlaysiz</b><span>Ism va telefon qoldirasiz. Saytda to'lov yo'q.</span></li>
+    <li><b>Operator qo'ng'iroq qiladi</b><span>15 daqiqa ichida buyurtma va manzilni tasdiqlaydi.</span></li>
     <li><b>BTS orqali yuboramiz</b><span>2–4 kunda yetib keladi.</span></li>
     <li><b>Olganingizda to'laysiz</b><span>Naqd yoki karta orqali.</span></li>
   </ol>
@@ -279,18 +284,20 @@ footer a{color:#fff;font-weight:700}
   <p class="sub">Hozir to'lov qilmaysiz</p>
   <div class="box" id="box">
     <div class="fields">
-      <span class="lbl">Nechta olasiz?</span>
-      <div class="pkgs" id="pkgs"></div>
-
-      <span class="lbl">Ranglar <small>— ixtiyoriy, operator bilan ham tanlasangiz bo'ladi</small></span>
-      <div class="chips" id="chips"></div>
-      <p class="chipnote" id="chipNote"></p>
+      <span class="lbl">Rang va sonini tanlang <small>— istalgancha</small></span>
+      <div class="picks" id="picks"></div>
+      <p class="note" id="note"></p>
+      <div class="giftbox" id="giftBox" hidden>
+        <span class="lbl">Sovg'ani tanlang <small>— qaysi biri bepul bo'lsin?</small></span>
+        <div class="chips" id="giftChips"></div>
+      </div>
 
       <label class="lbl" for="name">Ismingiz</label>
       <div class="field"><input id="name" type="text" placeholder="Masalan: Madina" autocomplete="name" autocapitalize="words" maxlength="60"></div>
       <label class="lbl" for="phone">Telefon raqamingiz</label>
       <div class="field"><input id="phone" type="tel" placeholder="+998 __ ___ __ __" autocomplete="tel" inputmode="tel" enterkeyhint="send"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
 
+      <div class="rows" id="rows"></div>
       <div class="total"><span>Jami to'lov<small>olganingizda to'laysiz</small></span><b id="total">290 000 so'm</b></div>
       <div class="err" id="err" role="alert"></div>
       <button class="btn" id="send" type="button">Buyurtma berish</button>
@@ -337,11 +344,8 @@ footer a{color:#fff;font-weight:700}
 const PRICE = 145000;          // bitta blesk narxi, so'm
 const NEED = 3;                // aksiya: shuncha ta olsa — 1 tasi bepul (2 → "2+1", 3 → "3+1")
 const SITE_TAG = NEED + '+1';  // Bitrix'dagi buyurtmada ko'rinadi
-// Formadagi variantlar: paid — to'lanadigan, gift — bepul
-const PKGS = [
-  {paid: NEED, gift: 1, best: true},
-  {paid: 1,    gift: 0},
-];
+const GIFT_FROM = NEED + 1;    // shuncha va undan ko'p blesk tanlansa — bittasi sovg'a
+const MAX_QTY = 99;            // bitta buyurtmada eng ko'p blesk (amalda cheklovsiz)
 
 const SHADES = [
  {id:'cherry',   name:'Cherry',          img:'img/04.webp', hex:'#B5303F', aroma:'vishnya'},
@@ -358,8 +362,7 @@ const SHADES = [
 const $ = s => document.querySelector(s);
 const num = n => n.toLocaleString('ru-RU').replace(/ |,/g, ' ');
 const fmt = n => num(n) + " so'm";
-const units = p => p.paid + p.gift;
-const pkgName = p => p.gift ? `${p.paid} ta + ${p.gift} ta bepul` : `${p.paid} ta`;
+const shade = id => SHADES.find(s => s.id === id);
 
 // Narx bloki
 (function(){
@@ -379,40 +382,67 @@ $('#shades').innerHTML = SHADES.map(s => `
     <span>hidi: ${s.aroma}</span>
   </div>`).join('');
 
-// Forma: variantlar
-let pkg = 0;
-$('#pkgs').innerHTML = PKGS.map((p, i) => `
-  <label class="pkg${i === 0 ? ' on' : ''}">
-    <input type="radio" name="pkg" value="${i}" ${i === 0 ? 'checked' : ''}>
-    <span class="radio"></span>
-    <span class="t"><b>${pkgName(p)}</b><span>jami ${units(p)} ta blesk</span></span>
-    <span class="p">${p.gift ? `<s>${fmt(units(p) * PRICE)}</s>` : ''}<b>${fmt(p.paid * PRICE)}</b></span>
-    ${p.best ? '<span class="badge">Foydali</span>' : ''}
-  </label>`).join('');
-$('#pkgs').addEventListener('change', e => {
-  pkg = +e.target.value;
-  document.querySelectorAll('.pkg').forEach((el, i) => el.classList.toggle('on', i === pkg));
-  colors = colors.slice(0, units(PKGS[pkg]));
-  update();
+// Forma: rang va soni
+const qty = Object.fromEntries(SHADES.map(s => [s.id, 0]));
+let gift = null;                       // sovg'a — tanlangan ranglardan biri
+const count = () => Object.values(qty).reduce((a, b) => a + b, 0);
+const hasGift = () => count() >= GIFT_FROM;              // GIFT_FROM va undan ko'p — bittasi sovg'a
+const payCount = () => hasGift() ? count() - 1 : count(); // to'lanadigan soni
+const chosen = () => SHADES.filter(s => qty[s.id] > 0);
+const paidOf = s => qty[s.id] - (s.id === gift ? 1 : 0);
+function fixGift(){
+  if (!hasGift() || (gift && !qty[gift])) gift = null;
+  const c = chosen();
+  if (hasGift() && !gift && c.length === 1) gift = c[0].id; // bitta rang bo'lsa — o'zi tanlanadi
+}
+
+$('#picks').innerHTML = SHADES.map(s => `
+  <div class="pick" data-id="${s.id}">
+    <button type="button" class="ph" data-plus="${s.id}" aria-label="${s.name} qo'shish">${s.img ? `<img src="${s.img}" alt="" loading="lazy">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</button>
+    <span class="nm"><i class="dot" style="background:${s.hex}"></i>${s.name}</span>
+    <div class="qty">
+      <button type="button" data-minus="${s.id}" aria-label="${s.name} kamaytirish">−</button>
+      <output aria-live="polite">0</output>
+      <button type="button" class="plus" data-plus="${s.id}" aria-label="${s.name} ko'paytirish">+</button>
+    </div>
+  </div>`).join('');
+$('#picks').addEventListener('click', e => {
+  const p = e.target.closest('[data-plus]'), m = e.target.closest('[data-minus]');
+  if (p) {
+    if (count() >= MAX_QTY) { showErr(`Bitta buyurtmada ${MAX_QTY} tagacha blesk. Ko'proq kerak bo'lsa, qo'ng'iroq qiling.`); return; }
+    qty[p.dataset.plus]++; clearErr(); update(p.dataset.plus);
+  } else if (m && qty[m.dataset.minus] > 0) {
+    qty[m.dataset.minus]--; update(m.dataset.minus);
+  }
+});
+$('#giftChips').addEventListener('click', e => {
+  const c = e.target.closest('[data-gift]'); if (!c) return;
+  gift = c.dataset.gift; clearErr(); update();
 });
 
-// Forma: ranglar (ixtiyoriy)
-let colors = [];
-$('#chips').innerHTML = SHADES.map(s => `<button type="button" class="chip" data-id="${s.id}" aria-pressed="false"><i class="dot" style="background:${s.hex}"></i>${s.name}</button>`).join('');
-$('#chips').addEventListener('click', e => {
-  const c = e.target.closest('.chip'); if (!c) return;
-  const id = c.dataset.id, max = units(PKGS[pkg]);
-  if (colors.includes(id)) colors = colors.filter(x => x !== id);
-  else if (colors.length < max) colors.push(id);
-  else { $('#chipNote').textContent = `Bu variantda ${max} ta blesk — ${max} tagacha rang tanlang.`; return; }
-  update();
-});
-
-function update(){
-  const p = PKGS[pkg], max = units(p);
-  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', colors.includes(c.dataset.id)));
-  $('#chipNote').textContent = colors.length ? `Tanlandi: ${colors.length} / ${max}` : `${max} tagacha rang tanlashingiz mumkin.`;
-  $('#total').textContent = fmt(p.paid * PRICE);
+function update(bumpId){
+  fixGift();
+  const n = count();
+  document.querySelectorAll('.pick').forEach(el => {
+    const id = el.dataset.id, q = qty[id];
+    el.classList.toggle('on', q > 0);
+    el.querySelector('output').textContent = q;
+    el.querySelector('[data-minus]').disabled = q === 0;
+    if (id === bumpId) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+  });
+  $('#note').innerHTML = n >= GIFT_FROM
+    ? `${n} ta blesk tanladingiz — bittasi <b>sovg'a</b>`
+    : n ? `Yana ${GIFT_FROM - n} ta tanlasangiz, bittasi <b>sovg'a</b> bo'ladi`
+        : `${GIFT_FROM} ta va undan ko'p tanlasangiz, bittasi <b>sovg'a</b> bo'ladi`;
+  $('#giftBox').hidden = !hasGift();
+  $('#giftChips').innerHTML = chosen().map(s => `<button type="button" class="chip" data-gift="${s.id}" aria-pressed="${s.id === gift}"><i class="dot" style="background:${s.hex}"></i>${s.name}</button>`).join('');
+  const rows = [];
+  if (n) {
+    rows.push(`<div><span>${payCount()} ta × ${fmt(PRICE)}</span><b>${fmt(payCount() * PRICE)}</b></div>`);
+    if (hasGift()) rows.push(`<div><span>+ 1 ta sovg'a${gift ? ' — ' + shade(gift).name : ''}</span><b class="free">bepul</b></div>`);
+  }
+  $('#rows').innerHTML = rows.join('');
+  $('#total').textContent = fmt(payCount() * PRICE);
 }
 
 // Telefon: +998 XX XXX XX XX
@@ -456,24 +486,22 @@ let sending = false;
 $('#send').addEventListener('click', async () => {
   if (sending) return;
   clearErr();
+  if (!count()) { showErr('Kamida 1 ta blesk tanlang — rasm ostidagi «+» tugmasini bosing.'); $('#picks').scrollIntoView({behavior: 'smooth', block: 'center'}); return; }
+  if (hasGift() && !gift) { showErr("Sovg'ani tanlang: qaysi blesk bepul bo'lsin?"); $('#giftBox').scrollIntoView({behavior: 'smooth', block: 'center'}); return; }
   if (!nameEl.value.trim()) { showErr('Ismingizni yozing.'); nameEl.classList.add('bad'); nameEl.focus(); return; }
   if (phoneEl.value.replace(/\D/g, '').length < 12) { showErr("Telefon raqamini to'liq yozing: +998 XX XXX XX XX"); phoneEl.classList.add('bad'); phoneEl.focus(); return; }
   if ($('.hp').value) return; // spam-bot
 
-  const p = PKGS[pkg];
-  const colorNames = colors.map(id => SHADES.find(s => s.id === id).name);
-  const colorText = colorNames.length ? colorNames.join(', ') : 'operator bilan tanlanadi';
+  // Bitrix uchun: to'lanadigan blesklar rang bo'yicha + alohida sovg'a
+  const items = chosen().filter(s => paidOf(s) > 0).map(s => ({id: s.id, name: `${s.name} — ${paidOf(s)} ta`}));
   const data = {
-    items: [
-      {name: `Paket: ${pkgName(p)} (jami ${units(p)} ta blesk)`},
-      {name: `Ranglar: ${colorText}`},
-    ],
-    gift: p.gift ? {name: `${p.gift} ta blesk — aksiya bo'yicha bepul`} : null,
-    bonus: p.gift,
+    items,
+    gift: gift ? {id: gift, name: `${shade(gift).name} — 1 ta`} : null,
+    bonus: hasGift() ? 1 : 0,
     name: nameEl.value.trim(),
     phone: phoneEl.value.trim(),
-    total: fmt(p.paid * PRICE),
-    sum: p.paid * PRICE
+    total: fmt(payCount() * PRICE),
+    sum: payCount() * PRICE
   };
 
   const btn = $('#send'); sending = true; btn.disabled = true; btn.textContent = 'Yuborilmoqda…';
@@ -484,15 +512,15 @@ $('#send').addEventListener('click', async () => {
 
   $('#okPhone').textContent = data.phone;
   $('#okList').innerHTML =
-    `<div><dt>Buyurtma</dt><dd>${pkgName(p)}</dd></div>` +
-    `<div><dt>Ranglar</dt><dd>${colorText}</dd></div>` +
+    `<div><dt>Blesklar</dt><dd>${items.map(x => x.name).join('<br>')}</dd></div>` +
+    (data.gift ? `<div><dt>Sovg'a</dt><dd>${data.gift.name}</dd></div>` : '') +
     `<div><dt>To'lov (olganda)</dt><dd>${data.total}</dd></div>`;
   $('#box').classList.add('sent');
   $('#box').scrollIntoView({behavior: 'smooth', block: 'center'});
 });
 
 $('#again').addEventListener('click', () => {
-  colors = []; nameEl.value = ''; phoneEl.value = ''; clearErr();
+  SHADES.forEach(s => qty[s.id] = 0); gift = null; nameEl.value = ''; phoneEl.value = ''; clearErr();
   $('#box').classList.remove('sent'); update();
 });
 
