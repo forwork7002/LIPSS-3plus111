@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIPS lab-bleski — 3 ta olsangiz, 4-chisi bepul</title>
+<meta name="description" content="Original LIPS lab-bleski. 1 dona 145 000 so'm. 3 ta olsangiz, 4-chisi bepul. To'lov mahsulotni qabul qilganda. Tel: +998 90 500 46 56.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:title" content="LIPS lab-bleski — 3 ta olsangiz, 4-chisi bepul">
+<meta property="og:description" content="Original LIPS. To'lov qabul qilganda. BTS orqali 2–4 kun.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lipss.uz/img/01.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23C4112F%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%23fff%27 font-family=%27Arial%27 font-weight=%27700%27%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/01.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Bitta tor ustun — telefon ekranidek. Kompyuterda ham o'rtada turadi. */
+:root{
+  --paper:#FFFFFF;
+  --side:#F6ECEB;
+  --blush:#FFF1EF;
+  --cherry:#C4112F;
+  --cherry-dk:#A00C25;
+  --ink:#2A171B;
+  --muted:#6F5F64;
+  --line:#EEDFDF;
+  --ok:#12804A;
+  --ok-bg:#EAF6EF;
+  --col:520px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--side);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:2px;border-radius:8px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+.page{max-width:var(--col);margin:0 auto;background:var(--paper);min-height:100vh}
+@media(min-width:560px){.page{box-shadow:0 0 0 1px var(--line)}}
+.in{padding:0 16px}
+section{padding:32px 0;border-top:8px solid var(--side)}
+section:first-of-type{border-top:0}
+h2{font-size:24px;font-weight:800;margin-bottom:16px}
+h2 + .sub{margin-top:-10px;margin-bottom:16px;color:var(--muted);font-size:15px}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:0 20px;border-radius:14px;background:var(--cherry);color:#fff;font-weight:700;font-size:18px;transition:background .15s}
+.btn:hover{background:var(--cherry-dk)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* Tepa */
+.strip{background:var(--ok);color:#fff;font-size:14px;font-weight:600;text-align:center;padding:8px 12px}
+.head{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.head .in{display:flex;align-items:center;justify-content:space-between;height:58px;gap:10px}
+.logo{font-weight:800;font-size:22px;letter-spacing:.12em;color:var(--cherry);line-height:1}
+.logo small{display:block;font-size:11px;font-weight:600;letter-spacing:0;color:var(--muted);margin-top:3px}
+.call{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:8px 12px;border-radius:12px;background:var(--ok-bg);color:var(--ok)}
+.call svg{width:18px;height:18px;flex:none}
+
+/* Hero */
+.hero{padding-top:16px}
+.hero h1{font-size:30px;font-weight:800}
+.hero .lead{margin-top:6px;color:var(--muted);font-size:16px}
+.hero-pic{margin-top:14px;border-radius:16px;overflow:hidden;aspect-ratio:10/9;background:var(--blush)}
+.hero-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+
+.price{margin-top:16px;border:2px solid var(--cherry);border-radius:16px;overflow:hidden}
+.price-top{background:var(--cherry);color:#fff;text-align:center;font-weight:800;font-size:clamp(16.5px,4.9vw,19px);padding:10px 12px}
+.price-rows{padding:6px 16px}
+.price-rows div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 0;font-size:16px}
+.price-rows div + div{border-top:1px dashed var(--line)}
+.price-rows span{color:var(--muted)}
+.price-rows b{font-size:18px;font-weight:700;white-space:nowrap}
+.price-rows .best span{color:var(--ink);font-weight:700}
+.price-rows .best s{color:var(--muted);font-weight:500;font-size:15px;margin-right:6px}
+.price-rows .best b{font-size:clamp(20px,6.2vw,24px);color:var(--cherry);font-weight:800}
+.price-rows .best > span{white-space:nowrap}
+.price .btn{border-radius:0;min-height:58px}
+
+.checks{list-style:none;display:grid;gap:10px;margin-top:18px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-size:16px;font-weight:600}
+.checks svg{flex:none;width:22px;height:22px;color:var(--ok);margin-top:1px}
+
+/* Ranglar */
+.shades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shade .ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--blush)}
+.shade .ph img{width:100%;height:100%;object-fit:cover}
+.shade .sw{position:absolute;inset:0;background:radial-gradient(110% 80% at 28% 18%,rgba(255,255,255,.95),rgba(255,255,255,0) 46%),linear-gradient(165deg,#FFF7F4 0%,var(--sw) 85%)}
+.shade b{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;font-weight:700;line-height:1.2}
+.shade span{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
+.dot{display:inline-block;flex:none;width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(42,23,27,.2)}
+
+/* Afzalliklar / tarkib */
+.list{list-style:none;display:grid;gap:12px}
+.list li{display:flex;gap:12px;align-items:flex-start}
+.list svg{flex:none;width:24px;height:24px;color:var(--cherry);margin-top:1px}
+.list b{display:block;font-size:16.5px}
+.list span{display:block;color:var(--muted);font-size:15px}
+.ingr{margin-top:20px;background:var(--blush);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--muted)}
+.ingr b{color:var(--ink)}
+
+/* Blogerlar */
+.stories{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.stories img{flex:0 0 40%;min-width:0;aspect-ratio:554/1200;object-fit:cover;border-radius:12px;scroll-snap-align:start;background:var(--blush)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;text-align:center}
+.nums b{display:block;font-size:22px;font-weight:800;color:var(--cherry);line-height:1.15}
+.nums span{display:block;font-size:13px;color:var(--muted);line-height:1.3;margin-top:2px}
+
+/* Qadamlar — haqiqiy ketma-ketlik */
+.steps{list-style:none;display:grid;gap:0;counter-reset:st}
+.steps li{counter-increment:st;position:relative;display:grid;grid-template-columns:40px 1fr;gap:2px 12px;padding-bottom:16px}
+.steps li::before{content:counter(st);grid-row:span 2;width:40px;height:40px;border-radius:50%;background:var(--cherry);color:#fff;display:grid;place-items:center;font-weight:800;font-size:17px;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.steps b{font-size:16.5px;padding-top:2px}
+.steps span{color:var(--muted);font-size:15px}
+
+/* Forma */
+.order{background:var(--blush)}
+.order h2{text-align:center}
+.order .sub{text-align:center}
+.box{background:#fff;border-radius:16px;padding:16px;box-shadow:0 10px 30px -18px rgba(42,23,27,.35)}
+.lbl{display:block;font-weight:700;font-size:15.5px;margin:18px 0 8px}
+.lbl:first-child{margin-top:0}
+.lbl small{font-weight:500;color:var(--muted);font-size:13.5px}
+.pkgs{display:grid;gap:10px}
+.pkg{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border:2px solid var(--line);border-radius:14px;cursor:pointer;transition:border-color .15s,background .15s}
+.pkg input{position:absolute;opacity:0;pointer-events:none}
+.pkg .radio{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #CDBABD;display:grid;place-items:center}
+.pkg .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--cherry);transform:scale(0);transition:transform .15s}
+.pkg .t{flex:1;min-width:0}
+.pkg .t b{display:block;font-size:16px}
+.pkg .t span{display:block;font-size:13.5px;color:var(--muted)}
+.pkg .p{text-align:right;white-space:nowrap}
+.pkg .p b{display:block;font-size:17px;font-weight:800}
+.pkg .p s{font-size:13px;color:var(--muted)}
+.pkg .badge{position:absolute;top:-10px;right:12px;background:var(--ok);color:#fff;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px}
+.pkg.on{border-color:var(--cherry);background:#FFF8F7}
+.pkg.on .radio{border-color:var(--cherry)}
+.pkg.on .radio::after{transform:scale(1)}
+.pkg:focus-within{outline:3px solid rgba(196,17,47,.35);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:600;font-size:14px}
+.chip[aria-pressed="true"]{border-color:var(--cherry);background:var(--cherry);color:#fff}
+.chip[aria-pressed="true"] .dot{box-shadow:0 0 0 2px #fff}
+.chipnote{margin-top:8px;font-size:13.5px;color:var(--muted)}
+.field input{width:100%;height:56px;padding:0 16px;border-radius:12px;border:1.5px solid #E0CFD1;background:#fff;font:inherit;font-size:18px;color:var(--ink)}
+.field input::placeholder{color:#B5A5A9}
+.field input:focus{outline:none;border-color:var(--cherry);box-shadow:0 0 0 4px rgba(196,17,47,.12)}
+.field input.bad{border-color:var(--cherry)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-weight:700}
+.total b{font-size:26px;font-weight:800}
+.total small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
+.err{display:none;margin-top:12px;background:#FFF1EF;color:var(--cherry-dk);border:1.5px solid rgba(196,17,47,.3);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:600}
+.err.on{display:block}
+.box .btn{margin-top:14px;min-height:60px}
+.box .btn[disabled]{opacity:.7;cursor:wait}
+.safe{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:14px;color:var(--muted)}
+.safe svg{flex:none;width:18px;height:18px;color:var(--ok);margin-top:1px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.done{display:none;text-align:center;padding:8px 0}
+.done .okic{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;margin:0 auto 12px}
+.done .okic svg{width:32px;height:32px}
+.done h3{font-size:23px;font-weight:800}
+.done p{color:var(--muted);margin-top:6px}
+.done p b{color:var(--ink);white-space:nowrap}
+.done dl{margin:16px 0 0;text-align:left;background:var(--blush);border-radius:12px;padding:6px 14px}
+.done dl div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;font-size:15px}
+.done dl div + div{border-top:1px dashed var(--line)}
+.done dt{color:var(--muted)}
+.done dd{font-weight:700;text-align:right}
+.again{margin-top:14px;font-weight:700;color:var(--cherry);text-decoration:underline;text-underline-offset:3px}
+.box.sent .fields{display:none}.box.sent .done{display:block}
+
+/* Savollar */
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 0;font-weight:700;font-size:16.5px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--blush);color:var(--cherry);display:grid;place-items:center;font-size:20px;font-weight:600}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 15px;color:var(--muted);font-size:15.5px}
+
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:24px 16px calc(100px + env(safe-area-inset-bottom));font-size:14px;line-height:1.6}
+footer .logo{color:#fff;margin-bottom:10px}
+footer .logo small{color:rgba(255,255,255,.6)}
+footer a{color:#fff;font-weight:700}
+
+/* Pastki panel */
+.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--col);z-index:40;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);transition:transform .25s}
+.bar.hide{transform:translate(-50%,110%)}
+.bar .btn{flex:1;min-height:52px;font-size:17px}
+.bar .tel{flex:none;width:56px;padding:0;background:var(--ok)}
+.bar .tel:hover{background:#0E6B3D}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="strip">Oldindan to'lov yo'q — olganda to'laysiz</div>
+
+<header class="head"><div class="in">
+  <a href="#" class="logo" aria-label="LIPS">LIPS<small>O'zbekistondagi rasmiy hamkor</small></a>
+  <a class="call" href="tel:+998905004656"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>90 500 46 56</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="in">
+  <h1>LIPS lab-bleski</h1>
+  <p class="lead">9 ta rang, shirin hid. Lablarni 4–6 soat yaltiroq va nam saqlaydi, yopishmaydi.</p>
+  <div class="hero-pic"><img src="img/01.webp" alt="LIPS Cherry lab-bleski" width="1067" height="1600" fetchpriority="high"></div>
+
+  <div class="price">
+    <div class="price-top" id="offerTop">Aksiya: 2 ta olsangiz, 3-chisi bepul</div>
+    <div class="price-rows">
+      <div><span>1 ta blesk</span><b id="p1">145 000 so'm</b></div>
+      <div class="best"><span id="pkLbl">3 ta blesk</span><span><s id="pkOld">435 000</s><b id="pkNew">290 000 so'm</b></span></div>
+    </div>
+    <a href="#buyurtma" class="btn">Buyurtma berish</a>
+  </div>
+
+  <ul class="checks">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>Original mahsulot — LIPS brendining rasmiy hamkori</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>To'lov mahsulotni olganda — naqd yoki karta</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>BTS orqali butun O'zbekistonga, 2–4 kun</li>
+  </ul>
+</div></section>
+
+<section id="ranglar"><div class="in">
+  <h2>9 ta rang</h2>
+  <p class="sub">Rasmda — labda qanday ko'rinishi.</p>
+  <div class="shades" id="shades"></div>
+</div></section>
+
+<section><div class="in">
+  <h2>Nega aynan LIPS</h2>
+  <ul class="list">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>Yopishmaydi</b><span>Yengil tekstura, soch labga yopishib qolmaydi.</span></div></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>4–6 soat ushlanadi</b><span>Kun davomida tez-tez surtish shart emas.</span></div></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>Lablarni namlaydi</b><span>Sovuq va shamolda lablarni himoya qiladi.</span></div></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>Yoqimli hid</b><span>Vishnya, latte, karamel, kruassan va boshqalar.</span></div></li>
+  </ul>
+  <p class="ingr"><b>Tarkibida:</b> mimetik peptid, seramidlar, vitamin E, portulak ekstrakti, glikolipidlar.</p>
+</div></section>
+
+<section><div class="in">
+  <h2>Blogerlar LIPS haqida</h2>
+  <p class="sub">Instagram'dagi storislar.</p>
+  <div class="stories">
+    <img src="img/14.webp" alt="Bloger storisi: @valerakomarova" loading="lazy">
+    <img src="img/15.webp" alt="Bloger storisi: @kvittkova" loading="lazy">
+    <img src="img/16.webp" alt="Bloger storisi: @saba.musina" loading="lazy">
+    <img src="img/17.webp" alt="Bloger storisi: @dashatm19" loading="lazy">
+    <img src="img/18.webp" alt="Bloger storisi: @tanyaparfileva" loading="lazy">
+    <img src="img/19.webp" alt="Bloger storisi: @alina_frendiy" loading="lazy">
+  </div>
+  <div class="nums">
+    <div><b>1,9 mln</b><span>ko'rish — bitta videoda</span></div>
+    <div><b>20+</b><span>har kuni eslatma</span></div>
+    <div><b>2024</b><span>brend tashkil topgan</span></div>
+  </div>
+</div></section>
+
+<section><div class="in">
+  <h2>Qanday buyurtma beriladi</h2>
+  <ol class="steps">
+    <li><b>Ism va telefon qoldirasiz</b><span>Saytda hech narsa to'lamaysiz.</span></li>
+    <li><b>Operator qo'ng'iroq qiladi</b><span>15 daqiqa ichida rang va manzilni aniqlaydi.</span></li>
+    <li><b>BTS orqali yuboramiz</b><span>2–4 kunda yetib keladi.</span></li>
+    <li><b>Olganingizda to'laysiz</b><span>Naqd yoki karta orqali.</span></li>
+  </ol>
+</div></section>
+
+<section class="order" id="buyurtma"><div class="in">
+  <h2>Buyurtma berish</h2>
+  <p class="sub">Hozir to'lov qilmaysiz</p>
+  <div class="box" id="box">
+    <div class="fields">
+      <span class="lbl">Nechta olasiz?</span>
+      <div class="pkgs" id="pkgs"></div>
+
+      <span class="lbl">Ranglar <small>— ixtiyoriy, operator bilan ham tanlasangiz bo'ladi</small></span>
+      <div class="chips" id="chips"></div>
+      <p class="chipnote" id="chipNote"></p>
+
+      <label class="lbl" for="name">Ismingiz</label>
+      <div class="field"><input id="name" type="text" placeholder="Masalan: Madina" autocomplete="name" autocapitalize="words" maxlength="60"></div>
+      <label class="lbl" for="phone">Telefon raqamingiz</label>
+      <div class="field"><input id="phone" type="tel" placeholder="+998 __ ___ __ __" autocomplete="tel" inputmode="tel" enterkeyhint="send"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+
+      <div class="total"><span>Jami to'lov<small>olganingizda to'laysiz</small></span><b id="total">290 000 so'm</b></div>
+      <div class="err" id="err" role="alert"></div>
+      <button class="btn" id="send" type="button">Buyurtma berish</button>
+      <p class="safe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Raqamingiz faqat buyurtmani tasdiqlash uchun kerak. Yetkazib berish BTS orqali — hududga qarab 25 000 – 40 000 so'm.</span></p>
+    </div>
+
+    <div class="done" aria-live="polite">
+      <div class="okic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+      <h3>Buyurtma qabul qilindi</h3>
+      <p>Operator 15 daqiqa ichida <b id="okPhone"></b> raqamiga qo'ng'iroq qiladi.</p>
+      <dl id="okList"></dl>
+      <p style="margin-top:12px">Savol bo'lsa: <a href="tel:+998905004656"><b>+998 90 500 46 56</b></a></p>
+      <button type="button" class="again" id="again">Yana bitta buyurtma berish</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="faq" id="savollar"><div class="in">
+  <h2>Savollar</h2>
+  <details><summary>Bu original LIPS'mi?</summary><p>Ha. Biz LIPS brendining O'zbekistondagi rasmiy hamkorimiz. Mahsulot brend fabrikasidan to'g'ridan-to'g'ri keladi.</p></details>
+  <details><summary>To'lovni qachon qilaman?</summary><p>Mahsulotni olganingizda — naqd yoki karta orqali. Saytda hech qanday to'lov so'ralmaydi.</p></details>
+  <details><summary>Yetkazib berish qancha turadi?</summary><p>BTS pochtasi orqali, hududga qarab 25 000 – 40 000 so'm. 2–4 kunda yetib keladi.</p></details>
+  <details><summary>Qaysi rangni tanlay?</summary><p>Har kuni uchun — Clear, Latte yoki Salted Caramel. Yorqinroq — Cherry, Fig yoki Rose. Kechqurun uchun — Coffee yoki Kyiv Cake. Ikkilansangiz, operator maslahat beradi.</p></details>
+  <details><summary>Yopishqoq emasmi?</summary><p>Yo'q. Tekstura qalin, lekin yopishmaydi — LIPS'ning asosiy farqi shu.</p></details>
+</div></section>
+</main>
+
+<footer>
+  <div class="logo">LIPS<small>O'zbekistondagi rasmiy hamkor</small></div>
+  <p>Telefon: <a href="tel:+998905004656">+998 90 500 46 56</a></p>
+  <p>Yetkazib berish BTS orqali, to'lov mahsulotni olganda.</p>
+  <!-- Ishonch uchun kompaniya rekvizitlarini shu yerga qo'shing: MChJ nomi, STIR (INN), manzil -->
+  <p>© 2026 LIPS Uzbekistan</p>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="btn tel" href="tel:+998905004656" aria-label="Qo'ng'iroq qilish: +998 90 500 46 56"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+  <a class="btn" href="#buyurtma">Buyurtma berish</a>
+</div>
+</div>
+
+<script>
+// ======= SOZLAMALAR: faqat shu yerni o'zgartiring =======
+const PRICE = 145000;          // bitta blesk narxi, so'm
+const NEED = 3;                // aksiya: shuncha ta olsa — 1 tasi bepul (2 → "2+1", 3 → "3+1")
+const SITE_TAG = NEED + '+1';  // Bitrix'dagi buyurtmada ko'rinadi
+// Formadagi variantlar: paid — to'lanadigan, gift — bepul
+const PKGS = [
+  {paid: NEED, gift: 1, best: true},
+  {paid: 1,    gift: 0},
+];
+
+const SHADES = [
+ {id:'cherry',   name:'Cherry',          img:'img/04.webp', hex:'#B5303F', aroma:'vishnya'},
+ {id:'caramel',  name:'Salted Caramel',  img:'img/28.webp', hex:'#E9CDA6', aroma:"sho'r karamel"},
+ {id:'latte',    name:'Latte',           img:'img/06.webp', hex:'#C9A07E', aroma:'latte'},
+ {id:'croissant',name:'Butter Croissant',img:'img/03.webp', hex:'#F2C6C0', aroma:'kruassan'},
+ {id:'fig',      name:'Fig',             img:'img/08.webp', hex:'#D9647A', aroma:'anjir'},
+ {id:'rose',     name:'Rose',            img:null,          hex:'#E08698', aroma:'atirgul'},
+ {id:'coffee',   name:'Coffee',          img:'img/26.webp', hex:'#6B3F2E', aroma:'kofe'},
+ {id:'kyiv',     name:'Kyiv Cake',       img:'img/32.webp', hex:'#D8B49A', aroma:'Kiyev torti'},
+ {id:'clear',    name:'Clear',           img:null,          hex:'#F1EAE1', aroma:'yengil shirin'},
+];
+
+const $ = s => document.querySelector(s);
+const num = n => n.toLocaleString('ru-RU').replace(/ |,/g, ' ');
+const fmt = n => num(n) + " so'm";
+const units = p => p.paid + p.gift;
+const pkgName = p => p.gift ? `${p.paid} ta + ${p.gift} ta bepul` : `${p.paid} ta`;
+
+// Narx bloki
+(function(){
+  const total = NEED + 1;
+  $('#offerTop').textContent = `Aksiya: ${NEED} ta olsangiz, ${total}-chisi bepul`;
+  $('#p1').textContent = fmt(PRICE);
+  $('#pkLbl').textContent = `${total} ta blesk`;
+  $('#pkOld').textContent = num(total * PRICE);
+  $('#pkNew').textContent = fmt(NEED * PRICE);
+})();
+
+// Ranglar
+$('#shades').innerHTML = SHADES.map(s => `
+  <div class="shade">
+    <div class="ph">${s.img ? `<img src="${s.img}" alt="${s.name} labda" loading="lazy">` : `<span class="sw" style="--sw:${s.hex}"></span>`}</div>
+    <b><i class="dot" style="background:${s.hex}"></i>${s.name}</b>
+    <span>hidi: ${s.aroma}</span>
+  </div>`).join('');
+
+// Forma: variantlar
+let pkg = 0;
+$('#pkgs').innerHTML = PKGS.map((p, i) => `
+  <label class="pkg${i === 0 ? ' on' : ''}">
+    <input type="radio" name="pkg" value="${i}" ${i === 0 ? 'checked' : ''}>
+    <span class="radio"></span>
+    <span class="t"><b>${pkgName(p)}</b><span>jami ${units(p)} ta blesk</span></span>
+    <span class="p">${p.gift ? `<s>${fmt(units(p) * PRICE)}</s>` : ''}<b>${fmt(p.paid * PRICE)}</b></span>
+    ${p.best ? '<span class="badge">Foydali</span>' : ''}
+  </label>`).join('');
+$('#pkgs').addEventListener('change', e => {
+  pkg = +e.target.value;
+  document.querySelectorAll('.pkg').forEach((el, i) => el.classList.toggle('on', i === pkg));
+  colors = colors.slice(0, units(PKGS[pkg]));
+  update();
+});
+
+// Forma: ranglar (ixtiyoriy)
+let colors = [];
+$('#chips').innerHTML = SHADES.map(s => `<button type="button" class="chip" data-id="${s.id}" aria-pressed="false"><i class="dot" style="background:${s.hex}"></i>${s.name}</button>`).join('');
+$('#chips').addEventListener('click', e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  const id = c.dataset.id, max = units(PKGS[pkg]);
+  if (colors.includes(id)) colors = colors.filter(x => x !== id);
+  else if (colors.length < max) colors.push(id);
+  else { $('#chipNote').textContent = `Bu variantda ${max} ta blesk — ${max} tagacha rang tanlang.`; return; }
+  update();
+});
+
+function update(){
+  const p = PKGS[pkg], max = units(p);
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', colors.includes(c.dataset.id)));
+  $('#chipNote').textContent = colors.length ? `Tanlandi: ${colors.length} / ${max}` : `${max} tagacha rang tanlashingiz mumkin.`;
+  $('#total').textContent = fmt(p.paid * PRICE);
+}
+
+// Telefon: +998 XX XXX XX XX
+function fmtPhone(v){
+  let d = v.replace('+998', '').replace(/\D/g, '');
+  if (d.length > 9 && d.startsWith('998')) d = d.slice(3);
+  d = d.slice(0, 9);
+  const parts = [d.slice(0,2), d.slice(2,5), d.slice(5,7), d.slice(7,9)].filter(Boolean);
+  return '+998' + (parts.length ? ' ' + parts.join(' ') : ' ');
+}
+const nameEl = $('#name'), phoneEl = $('#phone');
+const caretEnd = el => { try { const n = el.value.length; el.setSelectionRange(n, n); } catch (e) {} };
+phoneEl.addEventListener('focus', e => { if (!e.target.value) e.target.value = '+998 '; setTimeout(() => caretEnd(e.target), 0); });
+phoneEl.addEventListener('input', e => { e.target.value = fmtPhone(e.target.value); caretEnd(e.target); e.target.classList.remove('bad'); });
+nameEl.addEventListener('input', e => e.target.classList.remove('bad'));
+nameEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); phoneEl.focus(); } });
+phoneEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('#send').click(); } });
+const showErr = m => { $('#err').textContent = m; $('#err').classList.add('on'); };
+const clearErr = () => $('#err').classList.remove('on');
+
+// Yuborish: /api/order → server.js → Bitrix24
+// GitHub Pages'da server yo'q: u yerda sahifa faqat ko'rish uchun, buyurtma yuborilmaydi
+const DEMO = /\.github\.io$/.test(location.hostname);
+if (DEMO) (document.querySelector('.page') || document.body).insertAdjacentHTML('afterbegin',
+  '<div style="background:#2A171B;color:#fff;text-align:center;font:600 14px/1.4 system-ui,sans-serif;padding:8px 12px">Ko\'rish nusxasi: bu sahifadan buyurtma yuborilmaydi</div>');
+
+async function sendOrder(data){
+  if (DEMO) { await new Promise(r => setTimeout(r, 600)); return true; }
+  const utm = {};
+  try { new URLSearchParams(location.search).forEach((v, k) => { const kk = k.toLowerCase(); if (kk.startsWith('utm_')) utm[kk] = v; }); } catch (e) {}
+  const r = await fetch('/api/order', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({...data, site: SITE_TAG, page: location.href, utm, hp: $('.hp').value})
+  });
+  if (!r.ok) throw new Error('server');
+  const j = await r.json().catch(() => ({}));
+  return j && j.ok !== false;
+}
+
+let sending = false;
+$('#send').addEventListener('click', async () => {
+  if (sending) return;
+  clearErr();
+  if (!nameEl.value.trim()) { showErr('Ismingizni yozing.'); nameEl.classList.add('bad'); nameEl.focus(); return; }
+  if (phoneEl.value.replace(/\D/g, '').length < 12) { showErr("Telefon raqamini to'liq yozing: +998 XX XXX XX XX"); phoneEl.classList.add('bad'); phoneEl.focus(); return; }
+  if ($('.hp').value) return; // spam-bot
+
+  const p = PKGS[pkg];
+  const colorNames = colors.map(id => SHADES.find(s => s.id === id).name);
+  const colorText = colorNames.length ? colorNames.join(', ') : 'operator bilan tanlanadi';
+  const data = {
+    items: [
+      {name: `Paket: ${pkgName(p)} (jami ${units(p)} ta blesk)`},
+      {name: `Ranglar: ${colorText}`},
+    ],
+    gift: p.gift ? {name: `${p.gift} ta blesk — aksiya bo'yicha bepul`} : null,
+    bonus: p.gift,
+    name: nameEl.value.trim(),
+    phone: phoneEl.value.trim(),
+    total: fmt(p.paid * PRICE),
+    sum: p.paid * PRICE
+  };
+
+  const btn = $('#send'); sending = true; btn.disabled = true; btn.textContent = 'Yuborilmoqda…';
+  let ok = false;
+  try { ok = await sendOrder(data); } catch (e) { ok = false; }
+  sending = false; btn.disabled = false; btn.textContent = 'Buyurtma berish';
+  if (!ok) { showErr("Buyurtma yuborilmadi. Internetni tekshirib, qayta bosing yoki qo'ng'iroq qiling: +998 90 500 46 56"); return; }
+
+  $('#okPhone').textContent = data.phone;
+  $('#okList').innerHTML =
+    `<div><dt>Buyurtma</dt><dd>${pkgName(p)}</dd></div>` +
+    `<div><dt>Ranglar</dt><dd>${colorText}</dd></div>` +
+    `<div><dt>To'lov (olganda)</dt><dd>${data.total}</dd></div>`;
+  $('#box').classList.add('sent');
+  $('#box').scrollIntoView({behavior: 'smooth', block: 'center'});
+});
+
+$('#again').addEventListener('click', () => {
+  colors = []; nameEl.value = ''; phoneEl.value = ''; clearErr();
+  $('#box').classList.remove('sent'); update();
+});
+
+// Pastki panel forma ko'ringanda yashiriladi
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(es => $('#bar').classList.toggle('hide', es[0].isIntersecting), {threshold: .1}).observe($('#buyurtma'));
+}
+update();
+</script>
+</body>
+</html>
